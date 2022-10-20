@@ -1,0 +1,13 @@
+.albumdiv {
+    background: black;
+    overflow: hidden;
+    /* width: 320px;
+    height: 180px; */
+
+}
+
+.imgalbum {
+    width: 100% !important;
+    object-fit: cover;
+    opacity: 0.6;
+}
