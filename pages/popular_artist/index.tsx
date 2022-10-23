@@ -5,7 +5,7 @@ function index() {
     return (
         <div className=" p-5" >
             <div className="text-xl md:text-3xl font-bold flex items-center gap-x-3"  >
-                <Link href="./">
+                <Link href="./home">
                     <a className=" hover:text-sky-600">
                         <WestIcon fontSize="large" />
                     </a>

@@ -92,10 +92,14 @@ const AudioPlayer = () => {
                             <p className="  text-sky-600 text-sm xl:text-lg  font-bold ">Islamic Song</p>
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
 
-                        <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon className="" fontSize="large" />
-                        </div>
                     </div>
                 </div>
                 <div className="px-2" >
@@ -108,10 +112,13 @@ const AudioPlayer = () => {
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
 
-                        <div className=" text-center bg-sky-500 hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon fontSize="large" />
-                            {/* <Image  src={play} alt="caruselimage" /> */}
-                        </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="px-2" >
@@ -124,9 +131,13 @@ const AudioPlayer = () => {
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
 
-                        <div className=" text-center bg-sky-500 hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon fontSize="large" />
-                        </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="px-2" >
@@ -139,9 +150,13 @@ const AudioPlayer = () => {
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
 
-                        <div className=" text-center bg-sky-500 hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon fontSize="large" />
-                        </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="px-2" >
@@ -154,9 +169,13 @@ const AudioPlayer = () => {
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
 
-                        <div className=" text-center bg-sky-500 hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon fontSize="large" />
-                        </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="px-2" >
@@ -169,9 +188,13 @@ const AudioPlayer = () => {
                             <p className="text-xs xl:text-sm  text-heading">2022 | 6:06 min</p>
                         </div>
 
-                        <div className=" text-center bg-sky-500 hover:bg-sky-600 rounded-full  text-white">
-                            <PlayArrowIcon fontSize="large" />
-                        </div>
+                        <Link href="./musics">
+                            <a>
+                                <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
+                                    <PlayArrowIcon className="" fontSize="large" />
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
 

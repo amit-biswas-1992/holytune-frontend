@@ -102,7 +102,7 @@ function AlbumViewAll() {
                         <WestIcon fontSize="large" />
                     </a>
                 </Link>
-                <h5>  Populer Artists</h5>
+                <h5> Album</h5>
             </div>
             <div className=' grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 px-10'>
                 {albumlist.map((elem) => (

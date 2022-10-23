@@ -53,15 +53,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-function Home() {
+const Home = () => {
     return (
         <div className=" p-10">
             <div>
                 <div className=' flex justify-between items-center'>
                     <div className=" flex items-center gap-5 ">
+
                         <div className=' w-10 h-10 border border-heading cursor-pointer  hover:border-sky-600 rounded-full'>
+                            <Link href="/profile">
+                                <a> </a>
+                            </Link>
                             <Image className=" rounded-full" src={userimg} alt="artistimage" />
                         </div>
+
+
                         <div >
                             <h1 className=' text-xl font-bold'>Hi There !</h1>
                             <p className=' text-sm'>Subscribe for Premium experience</p>
@@ -69,7 +75,7 @@ function Home() {
                     </div>
                     <Link href="/search">
 
-                        <a >
+                        <a>
                             <div>
                                 <div className='block md:hidden'>
                                     <SearchIcon fontSize='large' />
@@ -116,7 +122,7 @@ function Home() {
                 <div className=' mb-5'>
                     <Album />
                 </div>
-                <div className=' mb-5'>
+                <div className=' mb-5 pb-10'>
                     <SuggestVideos />
                 </div>
             </div>

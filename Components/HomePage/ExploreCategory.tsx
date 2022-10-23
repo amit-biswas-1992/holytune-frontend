@@ -85,14 +85,24 @@ const ExploreCategory = () => {
             </div>
             <Slider {...settings}  >
                 <div >
-                    <div className=" w-full px-2  ">
-                        <Image width={300} height={200} src={caruselimage} alt="caruselimage" />
-                    </div>
+                    <Link href="../categories/category_wise_media">
+                        <a>
+                            <div className=" w-full px-2  ">
+                                <Image width={300} height={200} src={caruselimage} alt="caruselimage" />
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div >
-                    <div className=" w-full px-2 ">
-                        <Image width={300} height={200} src={caruselimage2} alt="caruselimage" />
-                    </div>
+                    <Link href="../categories/category_wise_media">
+                        <a>
+                            <div className=" w-full px-2 ">
+                                <Image width={300} height={200} src={caruselimage2} alt="caruselimage" />
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div >
                     <div className=" w-full px-2 ">

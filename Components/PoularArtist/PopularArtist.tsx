@@ -133,7 +133,7 @@ const PopularArtist = () => {
             <div className=" md:px-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5 cursor-pointer  py-3 text-center pb-16"  >
                 {artistlist.map((artist) => (
                     <div key={artist.id}>
-                        <Link href="">
+                        <Link href="../home">
                             <a>
                                 <ArtistCard
 

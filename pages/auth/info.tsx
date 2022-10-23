@@ -53,7 +53,7 @@ const Register = () => {
 
   return (
     <div className=' grid place-items-center font-body'>
-      <div className='m-2 p-2 mt-8 text-white'>
+      <div className='m-2 p-2 mt-8'>
         <div className='mx-4'>
           <form action="/send-data-here" method="post">
             <label>Enter your Name</label>

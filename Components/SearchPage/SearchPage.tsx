@@ -59,7 +59,7 @@ function SearchPage() {
 
             </div>
             <div className='grid place-items-center px-5 md:px-16'>
-                <Search className='  w-full rounded-2xl border border-slate-100 bg-slate-50 ' >
+                <Search className='  w-full rounded-2xl border border-slate-200 bg-slate-100 ' >
                     <SearchIconWrapper>
                         <SearchIcon />
                     </SearchIconWrapper>

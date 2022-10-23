@@ -75,7 +75,11 @@ const Mood = () => {
 
             <div className=" flex justify-between items-center mb-5 text-heading">
                 <h1 className=" font-bold text-lg md:text-xl 2xl:text-2xl">Mood</h1>
-                <button className=" font-bold text-xs md:text-base hover:text-sky-500 ">View All</button>
+                <Link href="/all_albums">
+                    <a>
+                        <button className=" font-bold text-xs md:text-base hover:text-sky-500 ">View All</button>
+                    </a>
+                </Link>
             </div>
             <Slider {...settings}  >
                 <div className="px-2" >

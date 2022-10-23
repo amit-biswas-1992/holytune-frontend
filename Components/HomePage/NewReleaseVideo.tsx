@@ -77,7 +77,7 @@ const NewReleaseVideo = () => {
             <div className=" flex justify-between items-center mb-5 text-heading">
                 <h1 className=" font-bold text-lg md:text-xl 2xl:text-2xl">New Release Video</h1>
                 <Link href="./all_videos">
-                    <a >
+                    <a>
                         <button className=" font-bold text-xs md:text-base hover:text-sky-500">View All</button>
                     </a>
                 </Link>
@@ -88,7 +88,14 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+
+                            </a>
+                        </Link>
+
                     </div>
                 </div>
                 <div >
@@ -96,7 +103,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -104,7 +115,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -112,7 +127,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -120,7 +139,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -128,7 +151,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -136,7 +163,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
                 <div >
@@ -144,7 +175,11 @@ const NewReleaseVideo = () => {
                         <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
                         />
                         <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-                        <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                        <Link href="./videos">
+                            <a >
+                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Tap to watch</p>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </Slider>
