@@ -80,8 +80,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3  text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3  text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 
@@ -91,8 +91,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage2} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3  text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3  text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 
@@ -102,8 +102,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3  text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3  text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 
@@ -113,8 +113,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage2} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3  text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3  text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 
@@ -124,8 +124,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3  text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3  text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 
@@ -135,8 +135,8 @@ const SuggestAlbums = () => {
                     <div className={` ${styles.albumdiv}  rounded-xl`} >
                         <Image className={` ${styles.imgalbum}`} src={caruselimage2} alt="caruselimage" layout="responsive" width={350} height={200}
                         />
-                        <div className="-mt-10 px-3   text-white z-50 absolute text-center">
-                            <p className=" text-lg flex items-center justyfy-center md:text-xl  text-center  font-semibold  ">Album Name</p>
+                        <div className="-mt-5 md:-mt-10 px-3   text-white z-50 absolute text-center">
+                            <p className=" text-xs md:text-sm xl:text-lg flex items-center justyfy-center   text-center  font-semibold  ">Album Name</p>
                         </div>
 
 

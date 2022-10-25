@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import { useRouter } from "next/router";
 
 import style from "./header.module.css";
+const ignoreArr = ["/", "/auth/register", "/auth/verification", "/auth/info"];
 const useStyles = makeStyles({
   root: {
     // width: "100%",
@@ -23,18 +24,22 @@ const useStyles = makeStyles({
 export default function BottomHeader() {
   const classes = useStyles();
   const [value, setValue] = useState("");
-  console.log(value, "router value");
+  // console.log(value, "router value");
 
   const navigate = useRouter();
-
-
+  console.log(navigate.asPath, "pathname");
+  useEffect(() => {
+    navigate.push(value);
+  }, [value]);
+  
+  if (ignoreArr.includes(navigate.asPath)) {
+    return null;
+  }
   const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
   };
 
-  useEffect(() => {
-    navigate.push(value);
-  }, [value]);
+
 
   return (
     <Paper
@@ -42,7 +47,7 @@ export default function BottomHeader() {
       elevation={2}
     >
       <BottomNavigation
-        defaultValue="/"
+        defaultValue="/home"
         value={value}
         onChange={handleChange}
         showLabels
@@ -52,25 +57,26 @@ export default function BottomHeader() {
         {" "}
         <BottomNavigationAction label="Home" value="/home" icon={<HomeIcon />} />
         <BottomNavigationAction
-          label="Audio Track"
+          label="Audios"
           value="/all_musics"
           icon={<AudiotrackIcon />}
         />
         <BottomNavigationAction
-          label="Video Track"
+          label="Videos"
           value="/all_videos"
           icon={<PlayArrowIcon />}
-        />
-        <BottomNavigationAction
-          label="Files"
-          value="/profile"
-          icon={<FileOpenIcon />}
         />
         <BottomNavigationAction
           label="Package"
           value="/package"
           icon={<SegmentIcon />}
         />
+        <BottomNavigationAction
+          label="More"
+          value="/profile"
+          icon={<FileOpenIcon />}
+        />
+
       </BottomNavigation>
     </Paper>
   );

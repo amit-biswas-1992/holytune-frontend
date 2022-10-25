@@ -103,7 +103,11 @@ const Podcast = () => {
 
             <div className=" flex justify-between items-center mb-5 text-heading">
                 <h1 className=" font-bold text-lg md:text-xl 2xl:text-2xl">Podcast</h1>
-                <button className=" font-bold text-xs md:text-base hover:text-sky-500 ">View All</button>
+                <Link href="./all_videos">
+                    <a>
+                        <button className=" font-bold text-xs md:text-base hover:text-sky-500">View All</button>
+                    </a>
+                </Link>
             </div>
             <div className={`${style.podcast}  md:px-10`}>
                 <div>

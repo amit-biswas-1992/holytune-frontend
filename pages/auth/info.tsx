@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   return (
-    <div className=' grid place-items-center font-body'>
+    <div className=' grid place-items-center h-screen font-body'>
       <div className='m-2 p-2 mt-8'>
         <div className='mx-4'>
           <form action="/send-data-here" method="post">

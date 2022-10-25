@@ -62,9 +62,9 @@ const Home = () => {
 
                         <div className=' w-10 h-10 border border-heading cursor-pointer  hover:border-sky-600 rounded-full'>
                             <Link href="/profile">
-                                <a> </a>
+                                <a> <Image className=" rounded-full" src={userimg} alt="artistimage" /></a>
                             </Link>
-                            <Image className=" rounded-full" src={userimg} alt="artistimage" />
+
                         </div>
 
 

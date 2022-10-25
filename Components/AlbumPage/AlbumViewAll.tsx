@@ -10,14 +10,14 @@ function AlbumViewAll() {
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "2",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
 
         },
         {
@@ -25,7 +25,7 @@ function AlbumViewAll() {
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
 
         },
         {
@@ -33,7 +33,7 @@ function AlbumViewAll() {
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
 
         },
         {
@@ -41,7 +41,7 @@ function AlbumViewAll() {
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
 
         },
         {
@@ -49,49 +49,49 @@ function AlbumViewAll() {
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "7",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "8",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "9",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "10",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "11",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
         {
             "id": "12",
             "img": albumcover,
             "albumName": "Album Name",
 
-            "valueOfSongs": "30"
+            "valueOfSongs": "50"
         },
     ];
     return (
@@ -114,8 +114,8 @@ function AlbumViewAll() {
                                 </a>
                             </Link>
 
-                            <p className="text-sm xl:text-lg   text-heading">{elem.albumName}</p>
-                            <p className="text-xs xl:text-sm   text-heading">{elem.valueOfSongs}</p>
+                            <p className="text-base xl:text-xl font-semibold   text-heading">{elem.albumName}</p>
+                            <p className="text-sm xl:text-lg   text-heading">{elem.valueOfSongs}</p>
 
 
                         </div>

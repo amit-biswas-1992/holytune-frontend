@@ -6,6 +6,7 @@ import Image from "next/image";
 import albumcover from "../../Assets/image/music.svg";
 import artistimg from "../../Assets/image/artist.png";
 import SuggestAlbums from '../SearchPage/SuggestAlbums';
+import { useState } from 'react';
 function ArtistProfile() {
     const albumlist = [
         {
@@ -97,6 +98,11 @@ function ArtistProfile() {
             "artistName": "Muhammad Badruzzaman", "duration": "5:10"
         },
     ];
+
+
+    const [follow, setFollow] = useState(false)
+    // console.log(follow);
+
     return (
         <div className=' p-5 xl:px-20 '>
             <Link href="../all_artist">
@@ -112,7 +118,12 @@ function ArtistProfile() {
                     </div>
                     <p className="text-base xl:text-lg font-medium  pt-2"> Abu Rayhan</p>
                     <p className="text-base xl:text-lg  pt-2"> 100.000 Listeners</p>
-                    <button className=' py-3 px-10 mt-3 bg-sky-500 rounded-[2rem] text-white '>Follow</button>
+                    <button className={` ${follow === true ? " bg-green-500" : " bg-sky-500"
+                        }  py-3 px-10 mt-3 rounded-[2rem] font-medium text-white `}
+                        onClick={() => { setFollow(!follow) }}
+                    >
+                        {follow === true ? (<>Following</>) : (<>Follow</>)}
+                    </button>
 
                     <p className="text-xs xl:text-sm  pt-2 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
@@ -123,18 +134,18 @@ function ArtistProfile() {
                 <div>
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
                         {albumlist.map((album) => (
-                            <div key={album.id} className=" my-3  grid grid-cols-4  rounded-xl hover:border hover:border-sky-500  cursor-pointer shadow-sm "
+                            <div key={album.id} className=" my-3  grid grid-cols-3  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm "
                             >
-                                <div className={`  rounded-xl overflow-hidden pr-2 `} >
+                                <div className={` col-span-2 flex items-center  justify-start gap-x-5 rounded-xl overflow-hidden pr-2 `} >
                                     <Image src={album.img} alt="caruselimage" width={100} height={100}
                                     />
-
+                                    <div className=" col-span-2 flex justify-center items-start flex-col " >
+                                        <h5 className=" text-base md:text-xl font-bold text-left">{album.title}</h5>
+                                        <h5 className=" text-sm md:text-lg font-medium text-left" >{album.artistName}</h5>
+                                    </div>
 
                                 </div>
-                                <div className=" col-span-2 flex justify-center items-start flex-col " >
-                                    <h5 className=" text-base md:text-xl font-bold text-left">{album.title}</h5>
-                                    <h5 className=" text-sm md:text-lg font-medium text-left" >{album.artistName}</h5>
-                                </div>
+
                                 <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album.duration}</h5>
                             </div>
                         ))}

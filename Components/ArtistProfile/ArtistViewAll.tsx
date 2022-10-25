@@ -37,91 +37,91 @@ const ArtistViewAll = () => {
             "img": artist
         },
         {
-            "id": "1",
+            "id": "6",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "7",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "8",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "9",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "10",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist
         },
         {
-            "id": "1",
+            "id": "11",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "12",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "13",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "14",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "15",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist
         },
         {
-            "id": "1",
+            "id": "16",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "17",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "18",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "19",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "20",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist

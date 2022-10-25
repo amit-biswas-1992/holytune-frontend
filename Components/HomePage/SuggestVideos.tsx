@@ -87,7 +87,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -111,7 +111,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -119,7 +119,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -127,7 +127,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -135,7 +135,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>
@@ -143,7 +143,7 @@ const SuggestVideos = () => {
                     <div className={`${style.sliderContent}  px-3 `} >
                         <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
                         />
-                        <p className="text-title text-lg md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
                     </div>
                 </div>

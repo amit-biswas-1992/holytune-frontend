@@ -36,91 +36,91 @@ const PopularArtist = () => {
             "img": artist
         },
         {
-            "id": "1",
+            "id": "11",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "21",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "31",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "41",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "51",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist
         },
         {
-            "id": "1",
+            "id": "111",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "211",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "311",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "411",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "19815",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist
         },
         {
-            "id": "1",
+            "id": "13211",
             "title": "Sayad Ahmed",
             "numOfSongs": "15 Songs",
             "img": artist
         },
         {
-            "id": "2",
+            "id": "217651",
             "title": "mahammad Badruzzaman",
             "numOfSongs": "25 Songs",
             "img": artist
         },
         {
-            "id": "3",
+            "id": "3211",
             "title": "Kalarab Sommitto Gojol",
             "numOfSongs": "30 Songs",
             "img": artist
         },
         {
-            "id": "4",
+            "id": "114",
             "title": "Sayad Ahmed",
             "numOfSongs": "55 Songs",
             "img": artist
         },
         {
-            "id": "5",
+            "id": "115",
             "title": "Sayad Ahmed",
             "numOfSongs": "5 Songs",
             "img": artist
@@ -129,7 +129,7 @@ const PopularArtist = () => {
     ];
     return (
         <div  >
-        
+
             <div className=" md:px-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5 cursor-pointer  py-3 text-center pb-16"  >
                 {artistlist.map((artist) => (
                     <div key={artist.id}>
