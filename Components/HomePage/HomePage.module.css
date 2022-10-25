@@ -1,0 +1,29 @@
+.podcast {
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.podcast::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.podcast {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+.sliderContent {
+  position: relative;
+  /* min-width: 280px; */
+  width: 100%;
+  /* min-height: 180px; */
+  height: 100%;
+
+}
