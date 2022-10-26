@@ -16,7 +16,11 @@ const Start = () => {
       <div className="text-white relative">
 
         <div className="grid place-items-center pt-6 pb-10">
+<<<<<<< HEAD
           <div className="w-24 h-24 md:w-32 md:h-32 xl:w-44 xl:h-44 pb-5  rounded-full  overflow-hidden shadow-md border hover:border-sky-500    ">
+=======
+          <div className="w-24 h-24 md:w-32 md:h-32 xl:w-40 xl:h-40 pb-5  rounded-full  overflow-hidden shadow-md border hover:border-sky-500    ">
+>>>>>>> 19a7c60326f61d24c050c2c0800d8b61317c4c3e
             <Image className=" " src={Logo} alt="Logo" />
           </div>
         </div>
