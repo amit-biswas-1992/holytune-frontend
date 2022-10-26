@@ -84,69 +84,102 @@ const SuggestVideos = () => {
             </div>
             <Slider {...settings}  >
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
                 <div >
-                    <div className={`${style.sliderContent}  px-3 `} >
-                        <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
-                        />
-                        <p className="text-title text-sm md:text-xl  font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
+                    <Link href="./videos">
+                        <a >
+                            <div className={`${style.sliderContent}  px-3 `} >
+                                <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
+                                />
+                                <p className="text-title text-sm md:text-xl   font-semibold ">জাদুকরী কণ্ঠে নতুন গজল</p>
 
-                    </div>
+                            </div>
+                        </a>
+                    </Link>
                 </div>
+
             </Slider>
         </div>
     );

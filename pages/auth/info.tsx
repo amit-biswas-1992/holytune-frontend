@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
 
 import { createUserProfile } from './../../services/api.service';
+import RegisterAnimation from './../../Components/AuthPage/RegisterAnimation';
 const Register = () => {
   const navigate = useRouter();
   const [userName, setUserName] = useState('');
@@ -52,8 +53,12 @@ const Register = () => {
   };
 
   return (
-    <div className=' grid place-items-center h-screen font-body'>
-      <div className='m-2 p-2 mt-8'>
+    <div className=' grid place-items-center  font-body'>
+      <div >
+        {/* <Image className=" w-full" src={varificationimg} alt="" /> */}
+        <RegisterAnimation />
+      </div>
+      <div className='m-2 p-2 '>
         <div className='mx-4'>
           <form action="/send-data-here" method="post">
             <label>Enter your Name</label>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-// import Logo from '../../components/assets/CMV.png';
+import Logo from '../../Assets/image/logo.png';
 
 // import style from '../../components/start.module.css';
 
@@ -15,15 +15,18 @@ const Start = () => {
 
       <div className="text-white relative">
 
-        <div className="grid place-items-center pt-6 pb-40">
-          {/* <Image className="h-8" src={Logo} alt='' /> */}
+        <div className="grid place-items-center pt-6 pb-10">
+          <div className="w-24 h-24 md:w-32 md:h-32 xl:w-44 xl:h-44 pb-5  rounded-full  overflow-hidden shadow-md border hover:border-sky-500    ">
+            <Image className=" " src={Logo} alt="Logo" />
+          </div>
         </div>
 
 
-        <div className="pt-44">
+        <div className="pt-20">
           <div className=''>
 
-            <div className="grid  place-items-center px-8 md:px-80">
+            <div className="grid  place-items-center  px-8 md:px-80">
+
               <Link href='../auth/register'>
                 {/* <button className="rounded-2xl w-full py-4 my-4 mt-8 bg-sky-600 hover:bg-sky-700 text-white text-center">
                   Get Started
