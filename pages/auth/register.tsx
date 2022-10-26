@@ -3,8 +3,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 // import "react-phone-number-input/style.css";
 import { toast } from "react-toastify";
-
+import styles from "../../Components/AuthPage/Authpage.module.css"
+import Loginanimation from "../../Components/AuthPage/Loginanimation";
 import { generateotp } from './../../services/api.service';
+
+
+
 const Register = () => {
   const navigate = useRouter();
   const [num, setNum] = useState("");
@@ -47,7 +51,11 @@ const Register = () => {
   };
 
   return (
-    <div className="grid  place-items-center h-screen">
+    <div className="grid  place-items-center ">
+      <div >
+        {/* <Image className=" w-full" src={varificationimg} alt="" /> */}
+        <Loginanimation />
+      </div>
       <div className="m-2 p-2 ">
         <div>
           <h1 className="text-xl">Enter your Mobile Number</h1>
