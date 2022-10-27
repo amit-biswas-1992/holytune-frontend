@@ -3,7 +3,11 @@ import albumcover from "../../Assets/image/music.svg";
 import Link from "next/link";
 import WestIcon from '@mui/icons-material/West';
 import Image from "next/image";
+import { useRouter } from 'next/router';
 function AlbumViewAll() {
+
+    const router = useRouter()
+
     const albumlist = [
         {
             "id": "1",
@@ -97,11 +101,11 @@ function AlbumViewAll() {
     return (
         <div className='p-5 '>
             <div className="text-xl md:text-3xl font-bold flex items-center gap-x-3"  >
-                <Link href="./home">
-                    <a className=" hover:text-sky-600">
-                        <WestIcon fontSize="large" />
-                    </a>
-                </Link>
+                {/* <Link href="./home">
+                    <a ></a>
+                </Link> */}
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
+
                 <h5> Album</h5>
             </div>
             <div className=' grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 px-10'>

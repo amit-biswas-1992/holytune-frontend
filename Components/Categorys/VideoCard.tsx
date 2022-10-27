@@ -101,7 +101,7 @@ export default function VideoCard() {
                 <div>
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
                         {albumlist.map((album) => (
-                            <Link href="../../all_videos" key={album.id}>
+                            <Link href="../../videos" key={album.id}>
                                 <a>
                                     <div className=" my-3 flex justify-between items-center  rounded-xl hover:border hover:border-sky-500  cursor-pointer shadow-sm place-items-start "
                                     >

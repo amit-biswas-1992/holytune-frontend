@@ -5,16 +5,19 @@ import WestIcon from '@mui/icons-material/West';
 import musicCover from "../../Assets/image/audiocover.svg"
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import { useRouter } from 'next/router';
+
 function Musics() {
+    const router = useRouter()
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
-                <Link href="../home">
-                    <a>
-                        <WestIcon className="  hover:text-sky-600" fontSize="large" />
+                {/* <Link href="../home">
+                    <a>     </a>
+                </Link> */}
+                <WestIcon onClick={() => router.back()} className="  hover:text-sky-600" fontSize="large" />
 
-                    </a>
-                </Link>
+
                 <p className='text-lg xl:text-2xl font-bold'> Playing Music</p>
             </div>
             <div >
@@ -33,7 +36,7 @@ function Musics() {
 
                         src="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3"
                         onPlay={e => console.log("onPlay")}
-                    
+
                     />
                 </div>
             </div>

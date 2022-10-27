@@ -3,7 +3,10 @@ import WestIcon from '@mui/icons-material/West';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import HdOutlinedIcon from '@mui/icons-material/HdOutlined';
+import { useRouter } from 'next/router';
 const Packages = () => {
+
+    const router = useRouter()
     const packageplan = [
         {
             "id": "1",
@@ -21,11 +24,8 @@ const Packages = () => {
     return (
         <div className=" p-5" >
             <div className="text-xl md:text-3xl font-bold flex items-center gap-x-3"  >
-                <Link href="./">
-                    <a className=" hover:text-sky-600">
-                        <WestIcon fontSize="large" />
-                    </a>
-                </Link>    <h5>  Packages</h5>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
+                <h5>  Packages</h5>
             </div>
             <div className=" md:px-20">
                 <div className="py-4">

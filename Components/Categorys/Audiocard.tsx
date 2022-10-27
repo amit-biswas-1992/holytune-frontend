@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from "next/link";
-import WestIcon from '@mui/icons-material/West';
+
 import Image from "next/image";
 import albumcover from "../../Assets/image/music.svg";
 export default function Audiocard() {
+    
     const albumlist = [
         {
             "id": "1",

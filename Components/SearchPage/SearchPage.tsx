@@ -11,6 +11,7 @@ import categoryimg3 from "../../Assets/image/category3.svg";
 import categoryimg4 from "../../Assets/image/category4.svg";
 import SuggestAlbums from './SuggestAlbums';
 import PopularArtist from '../PoularArtist/PopularArtist';
+import { useRouter } from 'next/router';
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -47,15 +48,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 function SearchPage() {
+
+    const router = useRouter()
     return (
         <div className='p-5 '>
 
             <div className="text-xl md:text-3xl font-bold flex items-center gap-x-3"  >
-                <Link href="../home">
-                    <a className=" hover:text-sky-600">
-                        <WestIcon fontSize="large" />
-                    </a>
-                </Link>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
 
             </div>
             <div className='grid place-items-center px-5 md:px-16'>

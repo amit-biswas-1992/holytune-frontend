@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import { useState } from 'react';
 import Audiocard from './Audiocard';
 import VideoCard from './VideoCard';
-
+import { useRouter } from 'next/router';
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -50,16 +50,12 @@ export default function CategoryWiseMedia() {
         setValue(newValue);
     };
 
+    const router = useRouter()
 
     return (
         <div className=' p-5 xl:px-20 '>
             <div className=' flex items-center gap-x-3'>
-                <Link href="../home">
-                    <a>
-                        <WestIcon className="  hover:text-sky-600" fontSize="large" />
-
-                    </a>
-                </Link>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Ghazal</p>
             </div>
             <div>

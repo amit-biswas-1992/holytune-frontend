@@ -5,18 +5,16 @@ import categoryimg1 from "../../Assets/image/category1.svg";
 import categoryimg2 from "../../Assets/image/category2.svg";
 import categoryimg3 from "../../Assets/image/category3.svg";
 import categoryimg4 from "../../Assets/image/category4.svg";
+import { useRouter } from 'next/router';
 import artist from "../../Assets/image/artist.png"
 import Image from 'next/image';
 export default function CategoryViewAll() {
+
+    const router = useRouter()
     return (
         <div className=' p-5 xl:px-20 '>
             <div className=' flex items-center gap-x-3'>
-                <Link href="../home">
-                    <a>
-                        <WestIcon className="  hover:text-sky-600" fontSize="large" />
-
-                    </a>
-                </Link>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Catagory</p>
             </div>
             <div>
