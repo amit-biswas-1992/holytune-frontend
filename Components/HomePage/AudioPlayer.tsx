@@ -39,11 +39,26 @@ const AudioPlayer = () => {
                 }
             },
             {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    // autoplay: true,
+                    // autoplaySpeed: 3000,
+                    // pauseOnHover: true,
+                    // // dots: true,
+                    // arrows: true,
+
+
+                }
+            },
+            {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 1.5,
                     slidesToScroll: 1,
-                    initialSlide: 2,
+                    initialSlide: 0,
                     infinite: true,
                     // autoplay: true,
                     // autoplaySpeed: 3000,
@@ -57,7 +72,7 @@ const AudioPlayer = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 1.04,
                     slidesToScroll: 1,
                     infinite: true,
                     // autoplay: true,

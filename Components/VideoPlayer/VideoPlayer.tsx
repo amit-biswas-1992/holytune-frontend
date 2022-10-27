@@ -12,12 +12,12 @@ import caruselimage4 from "../../Assets/image/sliderimg4.png";
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 function VideoPlayer() {
-  
+
     const router = useRouter()
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
-            <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Playing Videos</p>
             </div>
             <div className=' py-10'>

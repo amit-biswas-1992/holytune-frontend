@@ -57,7 +57,7 @@ const NewReleaseVideo = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
                     // autoplay: true,
@@ -89,7 +89,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent}  px-3 `} >
                                 <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -106,7 +106,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent}  px-3 `} >
                                 <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -123,7 +123,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent3}  px-3 `} >
                                 <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -140,7 +140,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent4}  px-3 `} >
                                 <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -157,7 +157,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent}  px-3 `} >
                                 <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -174,7 +174,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent}  px-3 `} >
                                 <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -191,7 +191,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent}  px-3 `} >
                                 <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
@@ -208,7 +208,7 @@ const NewReleaseVideo = () => {
                             <div className={`${style.sliderContent4}  px-3 `} >
                                 <Image src={caruselimage} alt="caruselimage" width={350} height={200}
                                 />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
 
 
                                 <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
