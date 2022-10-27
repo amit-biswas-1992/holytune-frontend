@@ -6,15 +6,14 @@ import artistimg from "../../Assets/image/artist.png";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import { useRouter } from 'next/router';
 export default function Profile() {
+ 
+  const router = useRouter()
   return (
     <div className="py-5 px-2 xl:px-20  ">
       <div className=" flex items-center gap-x-3">
-        <Link href="../home">
-          <a>
-            <WestIcon className="  hover:text-sky-600" fontSize="large" />
-          </a>
-        </Link>
+       <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
         <p className="text-lg xl:text-2xl font-bold"> Profile</p>
       </div>
 

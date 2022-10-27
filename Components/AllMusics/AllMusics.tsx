@@ -3,7 +3,12 @@ import Link from "next/link";
 import WestIcon from '@mui/icons-material/West';
 import Image from "next/image";
 import albumcover from "../../Assets/image/music.svg";
+import { useRouter } from 'next/router';
 function AllMusics() {
+
+    const router = useRouter()
+
+
     const albumlist = [
         {
             "id": "1",
@@ -98,12 +103,7 @@ function AllMusics() {
     return (
         <div className=' p-5 xl:px-20 '>
             <div className=' flex items-center gap-x-3'>
-                <Link href="../home">
-                    <a>
-                        <WestIcon className="  hover:text-sky-600" fontSize="large" />
-
-                    </a>
-                </Link>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Trending</p>
             </div>
 

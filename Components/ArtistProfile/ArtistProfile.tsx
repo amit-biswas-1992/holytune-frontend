@@ -7,7 +7,10 @@ import albumcover from "../../Assets/image/music.svg";
 import artistimg from "../../Assets/image/artist.png";
 import SuggestAlbums from '../SearchPage/SuggestAlbums';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 function ArtistProfile() {
+
+    const router = useRouter()
     const albumlist = [
         {
             "id": "1",
@@ -105,11 +108,7 @@ function ArtistProfile() {
 
     return (
         <div className=' p-5 xl:px-20 '>
-            <Link href="../all_artist">
-                <a className="  hover:text-sky-600">
-                    <WestIcon fontSize="large" />
-                </a>
-            </Link>
+            <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
             <div className="  rounded-b-3xl ">
 
                 <div className="grid place-items-center  pt-7">

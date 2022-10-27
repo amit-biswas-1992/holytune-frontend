@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Home = () => {
     return (
-        <div className=" p-10">
+        <div className="p-5 md:p-10">
             <div>
                 <div className=' flex justify-between items-center'>
                     <div className=" flex items-center gap-5 ">
@@ -97,34 +97,37 @@ const Home = () => {
                     </Link>
 
                 </div>
+                <div className="px-3">
+                    <div className=' mt-10 mb-5'>
+                        <HomeSlider />
+                    </div>
+                    <div className=' mb-5'>
+                        <ExploreCategory />
+                    </div>
+                    <div className=' mb-5'>
+                        <NewReleaseVideo />
+                    </div>
+                    <div className=' mb-5'>
+                        <AudioPlayer />
+                    </div>
+                    <div className=' mb-5'>
+                        <PopularArtistSlider />
+                    </div>
+                    <div className=' mb-5'>
+                        <Mood />
+                    </div>
+                    <div className=' mb-5'>
+                        <Podcast />
+                    </div>
+                    <div className=' mb-5'>
+                        <Album />
+                    </div>
+                    <div className=' mb-5 pb-10'>
+                        <SuggestVideos />
+                    </div>
+                </div>
 
-                <div className=' mt-10 mb-5'>
-                    <HomeSlider />
-                </div>
-                <div className=' mb-5'>
-                    <ExploreCategory />
-                </div>
-                <div className=' mb-5'>
-                    <NewReleaseVideo />
-                </div>
-                <div className=' mb-5'>
-                    <AudioPlayer />
-                </div>
-                <div className=' mb-5'>
-                    <PopularArtistSlider />
-                </div>
-                <div className=' mb-5'>
-                    <Mood />
-                </div>
-                <div className=' mb-5'>
-                    <Podcast />
-                </div>
-                <div className=' mb-5'>
-                    <Album />
-                </div>
-                <div className=' mb-5 pb-10'>
-                    <SuggestVideos />
-                </div>
+
             </div>
         </div>
     )

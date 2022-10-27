@@ -16,7 +16,7 @@ import img1 from "../../Assets/image/sliderimg1.png";
 import img2 from "../../Assets/image/sliderimg2.png";
 import img3 from "../../Assets/image/sliderimg3.png";
 import img4 from "../../Assets/image/sliderimg4.png";
-
+import { useRouter } from 'next/router';
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -52,6 +52,7 @@ function a11yProps(index: number) {
 export default function AllVideoCards() {
     const [value, setValue] = React.useState(0);
 
+    const router = useRouter()
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
@@ -149,12 +150,7 @@ export default function AllVideoCards() {
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
-                <Link href="../home">
-                    <a>
-                        <WestIcon className="  hover:text-sky-600" fontSize="large" />
-
-                    </a>
-                </Link>
+                <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Videos</p>
             </div>
             <div>

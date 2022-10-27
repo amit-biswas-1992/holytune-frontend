@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from "next/link";
 import WestIcon from '@mui/icons-material/West';
-
+import { useRouter } from 'next/router';
 import artist from "../../Assets/image/artist.png"
 import Image from 'next/image';
 const ArtistViewAll = () => {
+
+    const router = useRouter()
     const artistlist = [
         {
             "id": "1",
@@ -130,11 +132,7 @@ const ArtistViewAll = () => {
     ];
     return (
         <div className=' p-5 xl:px-20 ' >
-            <Link href="../home">
-                <a className="  hover:text-sky-600">
-                    <WestIcon fontSize="large" />
-                </a>
-            </Link>
+            <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
             <div className=" md:px-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5 cursor-pointer  py-3 text-center pb-16"  >
                 {artistlist.map((artist) => (
                     <div key={artist.id}>
