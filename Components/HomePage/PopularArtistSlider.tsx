@@ -85,93 +85,198 @@ const PopularArtistSlider = () => {
             </div>
             <Slider {...settings}  >
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
-                            <Image className=" " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-left'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19111 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
                 <div className="px-2" >
-                    <div className=" grid place-items-center overflow-hidden  ">
-                        <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40 rounded-full grid place-items-center overflow-hidden  ">
-                            <Image className="  " src={caruselimage} alt="artistimage" />
-                        </div>
-                        <div className=' text-leftr'>
-                            <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
-                            <h1 className=" text-xs xl:text-base ">19 Songs</h1>
-                        </div>
-                    </div>
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
                 </div>
+                <div className="px-2" >
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
+                </div>
+                <div className="px-2" >
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
+                </div>
+                <div className="px-2" >
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
+                </div>
+                <div className="px-2" >
+                    <Link href="./all_artist/artist_profile">
+                        <a>
+                            <div className=" grid place-items-center overflow-hidden  ">
+                                <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">
+                                    <Image className=" " src={caruselimage} alt="artistimage" />
+                                </div>
+                                <div className=' text-left'>
+                                    <h1 className=" text-sm xl:text-lg font-bold " >Sayad Ahmed</h1>
+                                    <h1 className=" text-xs xl:text-base ">191 Songs</h1>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
+                </div>
+
 
 
 
