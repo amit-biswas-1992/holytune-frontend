@@ -1,10 +1,11 @@
 
-import VideoPlayer from './../../Components/VideoPlayer/VideoPlayer';
+// import VideoPlayer from './../../Components/VideoPlayer/VideoPlayer';
+import AllVideoPlayer from './../../Components/AllVideoPlayer/AllVideoPlayer';
 
 function index() {
     return (
         <div>
-            <VideoPlayer />
+            <AllVideoPlayer />
         </div>
     );
 }

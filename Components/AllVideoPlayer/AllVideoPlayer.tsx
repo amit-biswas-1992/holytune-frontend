@@ -17,122 +17,53 @@ import play from "../../Assets/play.svg"
 import forward from "../../Assets/forward-5.svg"
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
-function VideoPlayer() {
+function AllVideoPlayer() {
 
     const router = useRouter()
-    const videoRef = useRef();
-    const [playing, setPlaying] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [videoTime, setVideoTime] = useState(0);
-    const [progress, setProgress] = useState(0);
 
-    const videoHandler = (control: any) => {
-        if (control === "play") {
-            videoRef.current.play();
-            setPlaying(true);
-            var vid = document.getElementById("video1");
-            setVideoTime(vid.duration);
-        } else if (control === "pause") {
-            videoRef.current.pause();
-            setPlaying(false);
-        }
+
+
+    const videoEl = useRef(null);
+    // useEffect(() => {
+
+    // }, [third])
+
+
+    const handleLoadedMetadata = () => {
+        const video = videoEl.current;
+        if (!video) return;
+        console.log(`The video is ${video.duration / 60} seconds long.`);
+        console.log(`currentTime is ${video.currentTime} seconds long.`);
     };
-
-    const fastForward = () => {
-        videoRef.current.currentTime += 5;
-    };
-
-    const revert = () => {
-        videoRef.current.currentTime -= 5;
-    };
-    useEffect(() => {
-        window.setInterval(function () {
-            setCurrentTime(videoRef.current?.currentTime);
-            setProgress((videoRef.current?.currentTime / videoTime) * 100);
-        }, 1000);
-    }, [])
-
-
-
-
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
                 <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Playing Videos</p>
             </div>
-            {/* <div className=' py-10'>
-                <ReactPlayer width="100%" height={500} controls={true} config={{
+            <div className=' py-10'>
+                {/* <ReactPlayer width="100%" height={500} controls={true} config={{
                     youtube: {
                         playerVars: { showinfo: 1 }
                     }
-                }} url='https://youtu.be/07EiNTp-dsg' />
-                <p className=' text-sm xl:text-base text-heading py-5'>সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-            </div> */}
-            <div className="app">
-                <video
-                    id="video1"
-                    ref={videoRef}
-                    className={styles.video}
-                    src="http://192.168.7.7/holytune/naat/Abu%20Rayhan%20New%20Song%202018%20%ef%80%a7%20Rasule%20Khoda%20With%20English%20Subtitle%20%ef%80%a7%20Islamic%20Hindi%20Song%20By%20Kalarab.mp4"
-                ></video>
+                }} url='https://media.w3.org/2010/05/sintel/trailer.mp4' /> */}
+                <div className=" grid place-items-center ">
+                    <video id='video' ref={videoEl} onLoadedMetadata={handleLoadedMetadata} controls controlsList="nodownload" preload='none' className='w-full xl:w-4/6' poster="https://i.ibb.co/mSt8gS3/sliderimg1.png" >
+                        <source id='mp4' src="http://192.168.7.7/holytune/naat/Bangla%20New%20Islamic%20Song%20With%20English%20Subtitle%20%ef%80%a7%20SalliAla%20Muhammad%20%ef%80%a7%20Kalarab%20Shilpigosthi.mp4" type='video/mp4' />
 
-                <div className="controlsContainer">
-                    <div className="controls">
-                        <Image
-                            onClick={revert}
-                            className={styles.controlsIcon}
-                            alt=""
 
-                            src={backwardimg}
-                        />
-                        {playing ? (
-                            <Image
-                                onClick={() => videoHandler("pause")}
-                                className={styles.controlsIconsmall}
-                                alt=""
 
-                                src={pause}
-                            />
-                        ) : (
-                            <Image
-                                onClick={() => videoHandler("play")}
-                                className={styles.controlsIconsmall}
-                                alt=""
-                                // width={50}
-                                // height={50}
-                                src={play}
-                            />
-                        )}
-                        <Image
-                            className={styles.controlsIcon}
-                            onClick={fastForward}
-                            alt=""
-
-                            src={forward}
-                        />
+                        {/* <p>Your user agent does not support the HTML5 Video element.</p> */}
+                    </video>
+                    <div>
+                        <p className=' grid place-content-start z-20 text-sm xl:text-base text-heading py-5 '>সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
                     </div>
                 </div>
 
-                <div className={styles.timecontrols}>
-                    <p className={styles.controlsTime}>
-                        {Math.floor(currentTime / 60) +
-                            ":" +
-                            ("0" + Math.floor(currentTime % 60)).slice(-2)}
-                    </p>
-                    <div className={styles.time_progressbarContainer}>
-                        <div
-                            style={{ width: `${progress}%` }}
-                            className={styles.time_progressBar}
-                        ></div>
-                    </div>
-                    <p className={styles.controlsTime}>
-                        {Math.floor(videoTime / 60) +
-                            ":" +
-                            ("0" + Math.floor(videoTime % 60)).slice(-2)}
-                    </p>
-                </div>
+                {/* <iframe src="http://192.168.7.7/holytune/naat/Bangla%20New%20Islamic%20Song%20With%20English%20Subtitle%20%ef%80%a7%20SalliAla%20Muhammad%20%ef%80%a7%20Kalarab%20Shilpigosthi.mp4" title='A youtube video on React hooks' sandbox='allow-scripts allow-modal' loading='eager' width={1000} height={500} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"></iframe> */}
+
             </div>
+
 
             <div>
                 <div className=" flex justify-between items-center mb-5 text-heading">
@@ -241,4 +172,4 @@ function VideoPlayer() {
     )
 }
 
-export default VideoPlayer
+export default AllVideoPlayer
