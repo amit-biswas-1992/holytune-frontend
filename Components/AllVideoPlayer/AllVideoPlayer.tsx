@@ -28,34 +28,54 @@ function AllVideoPlayer() {
 
     // }, [third])
 
+    // useEffect(() => {
 
+    //     let vid = document.getElementById("myVideo");
+    //     console.log(vid.duration, "duration");
+
+
+    // }, []);
+
+    // const myFunction = () => {
+    //     alert(vid.duration);
+    // }
     const handleLoadedMetadata = () => {
-        const video = videoEl.current;
+        const video: any = videoEl.current;
         if (!video) return;
+        // console.log(typeof (video.duration));
+
         console.log(`The video is ${video.duration / 60} seconds long.`);
         console.log(`currentTime is ${video.currentTime} seconds long.`);
+        console.log(`end is ${video.end} seconds long.`);
     };
+    const attemptPlay = () => {
+        const video: any = videoEl.current;
+        videoEl &&
+            video &&
+            video.play()
+    };
+
+    useEffect(() => {
+        attemptPlay();
+    }, []);
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
                 <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className='text-lg xl:text-2xl font-bold'> Playing Videos</p>
             </div>
-            <div className=' py-10'>
-                {/* <ReactPlayer width="100%" height={500} controls={true} config={{
-                    youtube: {
-                        playerVars: { showinfo: 1 }
-                    }
-                }} url='https://media.w3.org/2010/05/sintel/trailer.mp4' /> */}
+            <div className=' py-10 player-wrapper'>
+                {/* <ReactPlayer width="100%" height={500} className='react-player fixed-bottom' controls={true} url='https://media.w3.org/2010/05/sintel/trailer.mp4' /> */}
                 <div className=" grid place-items-center ">
-                    <video id='video' ref={videoEl} onLoadedMetadata={handleLoadedMetadata} controls controlsList="nodownload" preload='none' className='w-full xl:w-4/6' poster="https://i.ibb.co/mSt8gS3/sliderimg1.png" >
+                    {/* <button   >Get video length</button> */}
+                    <video id="myVideo" ref={videoEl} onLoadedMetadata={handleLoadedMetadata} controls autoPlay playsInline loop controlsList="nodownload" preload='none' className='w-full xl:w-4/6' >
                         <source id='mp4' src="http://192.168.7.7/holytune/naat/Bangla%20New%20Islamic%20Song%20With%20English%20Subtitle%20%ef%80%a7%20SalliAla%20Muhammad%20%ef%80%a7%20Kalarab%20Shilpigosthi.mp4" type='video/mp4' />
 
 
 
                         {/* <p>Your user agent does not support the HTML5 Video element.</p> */}
                     </video>
-                    <div>
+                    <div className=" w-full xl:w-4/6 ">
                         <p className=' grid place-content-start z-20 text-sm xl:text-base text-heading py-5 '>সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
                     </div>
                 </div>
