@@ -4,10 +4,52 @@ import WestIcon from '@mui/icons-material/West';
 import Image from "next/image";
 import albumcover from "../../Assets/image/music.svg";
 import { useRouter } from 'next/router';
+import { IMAGE_BASE_URL } from '../../utils/constants';
+import { getDataApi } from '../../services/api.service';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { AlbumInfo } from '../../models';
 function AllMusics() {
-
+    {/* */ }
     const router = useRouter()
+    const [audioData, setAudioData] = useState<AlbumInfo>()
+    console.log(audioData, "audioData");
 
+
+
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
+    const getaudioData = async () => {
+        const url = "/medias/audio";
+        try {
+
+            const data = await getDataApi(url);
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setAudioData(data.data)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
+
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await getaudioData();
+        };
+        callApi();
+    }, []);
 
     const albumlist = [
         {
@@ -112,20 +154,29 @@ function AllMusics() {
                     <p className='text-lg xl:text-xl font-semibold pt-10'>Populer Islamic Song</p>
 
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
-                        {albumlist.map((album) => (
+                        {audioData?.all?.map((album: any) => (
                             <Link key={album.id} href="musics"><a>
-                                <div className=" my-3  grid grid-cols-3  rounded-xl hover:border hover:border-sky-500  cursor-pointer shadow-sm "
+                                <div className="w-full my-3 flex gap-3 items-center  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm  "
                                 >
 
-                                    <div className={` col-span-2 flex items-center  justify-start   rounded-xl overflow-hidden pr-2  gap-x-5 `} >
-                                        <Image src={album.img} alt="caruselimage" width={100} height={100} />
 
-                                        <div className=" col-span-2 flex justify-center items-start flex-col  " >
-                                            <h5 className=" text-base md:text-xl font-bold text-left ">{album.title}</h5>
-                                            <h5 className=" text-sm md:text-lg font-medium text-left" >{album.artistName}</h5>
-                                        </div>
+                                    <div className={` h-full  `} >
+                                        <Image src={albumcover} alt="albumcover" width={100} height={100}
+                                        />
+
+
                                     </div>
-                                    <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album.duration}</h5>
+
+                                    <div className=" w-full " >
+                                        <h5 className=" text-base md:text-xl font-bold text-left ">{album.name}</h5>
+                                        <div className=" text-sm md:text-lg font-medium text-left" >{album?.artists?.map((artist: any) => (
+                                            <p key={artist.id}>{artist?.name}</p>
+                                        ))}</div>
+                                    </div>
+
+                                    <div className=" px-4">
+                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album.duration / 60}min</h5>
+                                    </div>
 
 
                                 </div>

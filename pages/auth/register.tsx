@@ -5,7 +5,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../../Components/AuthPage/Authpage.module.css"
 import Loginanimation from "../../Components/AuthPage/Loginanimation";
-import { generateotp } from './../../services/api.service';
+import { loginApi } from './../../services/api.service';
 
 
 
@@ -14,15 +14,28 @@ const Register = () => {
   const [num, setNum] = useState("");
   const [isError, setIsError] = useState(false);
   // let number: any = useRef();
-  // console.log(number);
+  console.log(num, "phone number");
+  const preventMinus = (e: any) => {
+    if (e.code === "Minus") {
+      e.preventDefault();
+    }
+  };
+  const preventPasteNegative = (e: any) => {
+    const clipboardData: any = e.clipboardData || window.Clipboard;
+    const pastedData = parseFloat(clipboardData.getData("text"));
 
+    if (pastedData < 0) {
+      e.preventDefault();
+    }
+  };
+
+  let pattern = /(^(\||01))[1|3-9]{1}(\d){8}$/;
+  let phone = pattern.test(num);
   const handleNumChange = (e: any) => {
     // event.preventDefault()
 
     setNum(e.target.value);
-    if (e.target.value.length > 11) {
-      setIsError(true);
-    } else if (e.target.value.length < 11) {
+    if (phone === false) {
       setIsError(true);
     } else {
       setIsError(false);
@@ -30,18 +43,23 @@ const Register = () => {
   };
 
   const loginApp = async () => {
-    const datakey = { num };
-    const url = "/notification/generate-otp";
+    // const datakey = `+88${num}`;
+    const payload = {
+      msisdn: `88${num}`
+    }
+    console.log(payload, "paayload");
+
+    const url = "/auth/otps/send";
     try {
 
-      // const data = await generateotp(url, datakey);
-      // if (data.statusCode) {
-      //   console.log('this block')
-      //   toast.warning("Please Input a correct Number");
-      //   return;
-      // }
-      // // console.log("dataforotp", data);
-      // localStorage.setItem("login_response", JSON.stringify(data.receiver));
+      const data = await loginApi(url, payload);
+      if (data.statusCode) {
+        console.log('this block')
+        toast.warning("Please Input a correct Number");
+        return;
+      }
+      console.log("dataforotp", data);
+      localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
 
       navigate.push("../auth/verification");
     } catch (err) {
@@ -60,21 +78,26 @@ const Register = () => {
         <div>
           <h1 className="text-xl">Enter your Mobile Number</h1>
 
-          <Input
+          <input
             className="w-full py-3 px-3 my-2 bg-white text-lg border hover:border-sky-600 rounded-lg "
             type="number"
             id="num"
             name="num"
-            error={isError}
-            value={num}
-            autoFocus
+            // error={isError}
+            // value={num}
+            // autoFocus
+            min="0"
+            onKeyPress={preventMinus}
+            onPaste={preventPasteNegative}
             // ref={number}
             onChange={handleNumChange}
             placeholder="Please Enter a Valid Number "
           />
           {isError === true ? (
             <p className=" text-xs 2xl:text-lg pt-3 text-red-500">
-              Your number is not correct, please enter 11 numbers
+              {phone === false ? (
+                <>Your number is not correct, please enter 11 numbers </>
+              ) : null}
             </p>
           ) : (
             <p></p>
@@ -95,7 +118,7 @@ const Register = () => {
           </div>
 
           <div className=" mt-16">
-            {isError === true ? (
+            {phone === false ? (
               <button
                 disabled
                 className="shadow  bg-gray-300  focus:shadow-outline focus:outline-none text-sm 2xl:text-xl text-white font-semibold py-2 px-4 rounded-xl w-full"

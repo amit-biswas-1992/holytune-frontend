@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
 import { toast } from "react-toastify";
 
-import { varifyotp } from "../../services/api.service";
+import { loginApi } from "../../services/api.service";
 
 import styles from "./Authpage.module.css";
 import Timer from "./Timer";
 // import CustomTimer from "./CustomTimer";
 
 import VarificationAnimation from "./VarificationAnimation";
-import { generateotp } from './../../services/api.service';
+
 function VarificationPage() {
   const navigate = useRouter();
   const [otp, setOtp] = useState("");
@@ -21,12 +21,12 @@ function VarificationPage() {
   console.log(otp, "otp");
   const [timeOut, setTimeOut] = useState(false);
 
-  // useEffect(() => {
-  //   const login_Data = JSON.parse(localStorage.getItem("login_response"));
+  useEffect(() => {
+    const login_Data = JSON.parse(localStorage.getItem("msisdn"));
 
-  //   setNum(login_Data);
+    setNum(login_Data);
 
-  // }, []);
+  }, []);
 
   const handleChange = (otp: any) => {
     setOtp(otp);
@@ -37,42 +37,42 @@ function VarificationPage() {
       toast.info("Please fill the otp");
       return;
     }
-    const datakey = { num, otp };
-    const url = "/notification/verify-otp";
-    navigate.push("../auth/info");
-    // try {
+    const datakey = { msisdn: num, otp: otp };
+    const url = "/auth/otps/verify";
+    // navigate.push("../auth/info");
+    try {
 
-    //   if (otp.length === 4) {
-    //     console.log("matched");
-
-
-    //     const data = await varifyotp(url, datakey);
-    //     console.log("varifyotp", data)
-    //     if (data.statusCode) {
-    //       // console.log('this block')
-    //       toast.warning("Invalid OTP");
-    //       return;
-    //     }
-    //     if (data.profileScreen === true) {
+      if (otp.length === 4) {
+        console.log("matched");
 
 
-    //       navigate.push("../auth/info");
-    //       toast.success("OTP varified");
-    //     } else {
-    //       console.log(data.token);
+        const data = await loginApi(url, datakey);
+        console.log("varifyotp", data)
+        if (data.statusCode) {
+          // console.log('this block')
+          toast.warning("Invalid OTP");
+          return;
+        }
+        if (data?.data.user?.isActive === false) {
 
-    //       localStorage.setItem("user_token", data.token);
+          localStorage.setItem("user_token", data.data.token);
+          navigate.push("../auth/info");
+          toast.success("OTP varified");
+        } else {
+          console.log(data.data.token);
 
-    //       navigate.push("../home");
-    //       toast.success("OTP verified");
-    //     }
+          localStorage.setItem("user_token", data.data.token);
 
-    //   } else {
-    //     toast.warning("Invalid OTP");
-    //   }
-    // } catch (error: any) {
-    //   toast.warning("Invalid OTP");
-    // }
+          navigate.push("../home");
+          toast.success("OTP verified");
+        }
+
+      } else {
+        toast.warning("Invalid OTP");
+      }
+    } catch (error: any) {
+      toast.warning("Invalid OTP");
+    }
 
 
   };
@@ -82,26 +82,26 @@ function VarificationPage() {
 
     const datakey = { num };
     const url = "/notification/generate-otp";
-    // try {
-    //   const data = await generateotp(url, datakey);
-    //   if (data.statusCode) {
+    try {
+      const data = await loginApi(url, datakey);
+      if (data.statusCode) {
 
-    //     return;
-    //   }
-
-
-    //   localStorage.setItem("login_response", JSON.stringify(data.receiver));
-    //   const login_Data = JSON.parse(localStorage.getItem("login_response"));
-    //   console.log(login_Data, "login_Data resend");
+        return;
+      }
 
 
-    //   setNum(login_Data);
+      localStorage.setItem("login_response", JSON.stringify(data.receiver));
+      const login_Data = JSON.parse(localStorage.getItem("msisdn"));
+      console.log(login_Data, "login_Data resend");
 
-    //   setOtp("");
-    //   setTimeOut(false);
-    // } catch (error: any) {
 
-    // }
+      setNum(login_Data);
+
+      setOtp("");
+      setTimeOut(false);
+    } catch (error: any) {
+
+    }
 
 
   };
@@ -125,6 +125,7 @@ function VarificationPage() {
           style={{ boxShadow: " 0px 14px 48px #F0F2FA" }}
         >
           <OtpInput
+            isInputNum={true}
             shouldAutoFocus
             value={otp}
             onChange={handleChange}

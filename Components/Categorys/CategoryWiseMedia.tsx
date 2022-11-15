@@ -11,12 +11,16 @@ import { useState } from 'react';
 import Audiocard from './Audiocard';
 import VideoCard from './VideoCard';
 import { useRouter } from 'next/router';
+import CategoryMediaInfo from './../../models/categoryInfo';
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
     value: number;
 }
-
+// interface PopUpWrapperProps {
+//     onClickOutside: () => void,
+//     children: any
+// }
 function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
 
@@ -43,20 +47,23 @@ function a11yProps(index: number) {
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
-export default function CategoryWiseMedia() {
+export default function CategoryWiseMedia(catData: any) {
+    const router = useRouter()
+    const [categoryData, setCategoryData] = useState<CategoryMediaInfo>()
     const [value, setValue] = React.useState(0);
-
+    console.log(catData.catData, "catData");
+    const categories = catData?.catData;
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
-    const router = useRouter()
+
 
     return (
         <div className=' p-5 xl:px-20 '>
             <div className=' flex items-center gap-x-3'>
                 <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
-                <p className='text-lg xl:text-2xl font-bold'> Ghazal</p>
+                <p className='text-lg xl:text-2xl font-bold'> {categories?.categoryName}</p>
             </div>
             <div>
                 <div className=" ">
@@ -65,8 +72,8 @@ export default function CategoryWiseMedia() {
                         <div className="  ">
                             <Image className=" " src={specificcategoryimg} alt="artistimage" />
                         </div>
-                        <p className="text-base xl:text-lg font-medium  pt-2">Ghazal</p>
-                        <p className="text-base xl:text-lg  pt-2"> 1000 Item Ghazal</p>
+                        <p className="text-base xl:text-lg font-medium  pt-2">{categories?.categoryName}</p>
+                        <p className="text-base xl:text-lg  pt-2"> {categories?.totalMedias} Item {categories?.categoryName}</p>
                         <div>
                             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"
                                 className=" mr-2 ml-2"
@@ -100,13 +107,13 @@ export default function CategoryWiseMedia() {
 
                     <TabPanel value={value} index={0}>
                         <div className='pb-10'>
-                            <Audiocard />
+                            <Audiocard audios={categories?.audio} />
 
                         </div>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <div className='pb-10'>
-                            <VideoCard />
+                            <VideoCard videos={categories?.video} />
 
                         </div>
                     </TabPanel>

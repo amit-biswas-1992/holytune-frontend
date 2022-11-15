@@ -50,6 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function SearchPage() {
 
     const router = useRouter()
+    const id = "2"
     return (
         <div className='p-5 '>
 
@@ -68,20 +69,51 @@ function SearchPage() {
                     />
                 </Search>
             </div>
+            {/* <Link href={` ../testid/${id}`}>
+                <a>
+                    <button>Test id btn</button>
+                </a>
+            </Link> */}
+
             <div className=' px-10 py-5'>
                 <h1 className=' text-lg xl:text-xl font-semibold'>Explore</h1>
-                <div className='grid grid-cols-2  xl:grid-cols-4 gap-x-3 md:gap-x-0 md:px-10'>
+                <div className='grid grid-cols-2  md:grid-cols-4 gap-x-3 md:gap-x-5 md:px-10'>
                     <div className=" w-full   ">
-                        <Image width={250} height={150} src={categoryimg1} alt="categoryimg" />
+
+                        <Link href="../categories/category_wise_media">
+                            <a>
+                                <Image width={250} height={150} src={categoryimg1} alt="categoryimg" />
+
+                            </a>
+                        </Link>
+
                     </div>
                     <div className=" w-full   ">
-                        <Image width={250} height={150} src={categoryimg2} alt="categoryimg" />
+                        <Link href="../categories/category_wise_media">
+                            <a>
+
+                                <Image width={250} height={150} src={categoryimg2} alt="categoryimg" />
+                            </a>
+                        </Link>
+
                     </div>
                     <div className=" w-full   ">
-                        <Image width={250} height={150} src={categoryimg3} alt="categoryimg" />
+                        <Link href="../categories/category_wise_media">
+                            <a>
+
+                                <Image width={250} height={150} src={categoryimg3} alt="categoryimg" />
+                            </a>
+                        </Link>
+
                     </div>
                     <div className=" w-full   ">
-                        <Image width={250} height={150} src={categoryimg4} alt="categoryimg" />
+                        <Link href="../categories/category_wise_media">
+                            <a>
+
+                                <Image width={250} height={150} src={categoryimg4} alt="categoryimg" />
+                            </a>
+                        </Link>
+
                     </div>
                 </div>
             </div>

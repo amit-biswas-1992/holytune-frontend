@@ -8,8 +8,23 @@ import caruselimage from "../../Assets/image/sliderimg1.png";
 import caruselimage2 from "../../Assets/image/sliderimg2.png";
 import caruselimage3 from "../../Assets/image/sliderimg3.png";
 import caruselimage4 from "../../Assets/image/sliderimg4.png";
+
+import nullimg from "../../Assets/image/notfound.png"
+import { IMAGE_BASE_URL } from "../../utils/constants";
 import style from "./HomePage.module.css";
-const NewReleaseVideo = () => {
+
+
+const NewReleaseVideo = (newReleaseVideo: any) => {
+    console.log(newReleaseVideo, "newReleaseVideo")
+    const newReleaseVideoInfo = newReleaseVideo?.newReleaseVideo;
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
     const settings = {
         // // dots: true,
         infinite: true,
@@ -83,142 +98,34 @@ const NewReleaseVideo = () => {
                 </Link>
             </div>
             <Slider {...settings}  >
-                <div >
-                    <Link href="./videos">
+                {newReleaseVideoInfo?.map((elem: any) => (<div key={elem?.id} >
+                    <Link href={`./videos/${elem.id}`}>
                         <a >
-                            <div className={`${style.sliderContent}  px-3 `} >
-                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+
+                            <div  >
+                                <div className={`${style.sliderContent}  px-3 `} >
+                                    {elem?.thumbnailUrl ? (<Image
+                                        className="rounded-2xl"
+                                        loader={myLoader}
+                                        src={elem?.thumbnailUrl}
+                                        width={350}
+                                        height={200}
+                                        alt=""
+                                    />) : (<Image src={nullimg} alt="caruselimage" width={350} height={200} />)}
+
+                                    <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">{elem?.name}</p>
 
 
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
+                                    <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
+                                </div>
                             </div>
+
+
+
                         </a>
                     </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent}  px-3 `} >
-                                <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
+                </div>))}
 
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent3}  px-3 `} >
-                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent4}  px-3 `} >
-                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent}  px-3 `} >
-                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent}  px-3 `} >
-                                <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent}  px-3 `} >
-                                <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
-                <div >
-                    <Link href="./videos">
-                        <a >
-                            <div className={`${style.sliderContent4}  px-3 `} >
-                                <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-                                />
-                                <p className="text-title text-xs md:text-sm xl:text-base pr-2 xl:pr-10">সময়ের সেরা নতুন গজল । Ishq E Nabi Jindabad । ইশকে নাবী জিন্দাবাদ</p>
-
-
-                                <p className=" cursor-pointer text-sky-600 text-center text-xs md:text-sm xl:text-base">Click to watch</p>
-
-
-
-                            </div>
-                        </a>
-                    </Link>
-                </div>
 
             </Slider>
         </div>

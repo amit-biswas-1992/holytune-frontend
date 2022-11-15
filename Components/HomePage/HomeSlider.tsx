@@ -9,7 +9,20 @@ import caruselimage2 from "../../Assets/image/sliderimg2.png";
 import caruselimage3 from "../../Assets/image/sliderimg3.png";
 import caruselimage4 from "../../Assets/image/sliderimg4.png";
 import style from "./HomePage.module.css";
-const HomeSlider = () => {
+
+import nullimg from "../../Assets/image/notfound.png"
+import { IMAGE_BASE_URL } from "../../utils/constants";
+const HomeSlider = (homeSlider: any) => {
+  // console.log(homeSlider, "homeSlider")
+  const homeSliderInfo = homeSlider?.homeSlider;
+  const myLoader = ({ src, width, quality }: any) => {
+    // console.log(src, "src");
+
+    // console.log(`${IMAGE_BASE_URL}${src}`);
+
+    return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+  };
   const settings = {
     // // dots: true,
     infinite: true,
@@ -74,54 +87,65 @@ const HomeSlider = () => {
   return (
     <div className="">
       <Slider {...settings}  >
-        <div >
+        {homeSliderInfo?.map((elem: any) => (
+          <div key={elem?.id} >
+            <div className={`${style.sliderContent}  px-3 `} >
+              {elem?.thumbnailUrl ? (<Image
+                className="rounded-2xl"
+                loader={myLoader}
+                src={elem?.thumbnailUrl}
+                width={350}
+                height={200}
+                alt=""
+              />) : (<Image src={nullimg} alt="caruselimage" width={350} height={200} />)}
+              {/* <Image src={caruselimage} alt="caruselimage" width={350} height={200}
+              /> */}
+            </div>
+          </div>
+        ))}
+
+        {/* <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage2} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage3} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage4} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage2} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
+            />
           </div>
         </div>
         <div >
           <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage3} alt="caruselimage"  width={350} height={200} 
-               />
+            <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
+            />
           </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage4} alt="caruselimage"  width={350} height={200} 
-               />
-          </div>
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

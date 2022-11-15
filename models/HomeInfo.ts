@@ -1,13 +1,13 @@
 interface HomeInfo {
-  featureVideos?: any;
+  randomVideos?: any;
 
-  mediaContentCategory?: any;
-  newReleaseVideos?: any;
-  mostPopularVideos?: any;
-  trendingVideos?: any;
-  teaserVideos?: any;
+  allCategories?: any;
+  latestVideos?: any;
+  allAudio?: any;
+  popularArtists?: any;
+  allAlbums?: any;
 
-  onlyForYouVideos?: any;
+  suggestedVideos?: any;
 }
 
 export default HomeInfo;

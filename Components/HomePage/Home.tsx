@@ -15,6 +15,12 @@ import Podcast from './Podcast';
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { IMAGE_BASE_URL } from '../../utils/constants';
+import { getDataApi } from '../../services/api.service';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { HomeInfo } from './../../models';
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -54,6 +60,46 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const Home = () => {
+
+
+    const [homeData, setHomeData] = useState<HomeInfo>()
+    console.log(homeData, "homeData");
+
+
+
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
+    const gethomeData = async () => {
+        const url = "/dashboard/home";
+        try {
+
+            const data = await getDataApi(url);
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setHomeData(data.data)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
+
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await gethomeData();
+        };
+        callApi();
+    }, []);
     return (
         <div className="p-5 md:p-10">
             <div>
@@ -99,19 +145,29 @@ const Home = () => {
                 </div>
                 <div className="px-3">
                     <div className=' mt-10 mb-5'>
-                        <HomeSlider />
+                        <HomeSlider
+                            homeSlider={homeData?.randomVideos}
+                        />
                     </div>
                     <div className=' mb-5'>
-                        <ExploreCategory />
+                        <ExploreCategory
+                            exploreCategory={homeData?.allCategories}
+                        />
                     </div>
                     <div className=' mb-5'>
-                        <NewReleaseVideo />
+                        <NewReleaseVideo
+                            newReleaseVideo={homeData?.latestVideos}
+                        />
                     </div>
                     <div className=' mb-5'>
-                        <AudioPlayer />
+                        <AudioPlayer
+                            audioPlayer={homeData?.allAudio}
+                        />
                     </div>
                     <div className=' mb-5'>
-                        <PopularArtistSlider />
+                        <PopularArtistSlider
+                            popularArtistSlider={homeData?.popularArtists}
+                        />
                     </div>
                     <div className=' mb-5'>
                         <Mood />
@@ -120,10 +176,14 @@ const Home = () => {
                         <Podcast />
                     </div>
                     <div className=' mb-5'>
-                        <Album />
+                        <Album
+                            albumslider={homeData?.allAlbums}
+                        />
                     </div>
                     <div className=' mb-5 pb-10'>
-                        <SuggestVideos />
+                        <SuggestVideos
+                            suggestVideos={homeData?.suggestedVideos}
+                        />
                     </div>
                 </div>
 

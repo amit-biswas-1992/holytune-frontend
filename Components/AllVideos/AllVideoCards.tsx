@@ -17,6 +17,9 @@ import img2 from "../../Assets/image/sliderimg2.png";
 import img3 from "../../Assets/image/sliderimg3.png";
 import img4 from "../../Assets/image/sliderimg4.png";
 import { useRouter } from 'next/router';
+import { getDataApi } from '../../services/api.service';
+import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -50,7 +53,9 @@ function a11yProps(index: number) {
     };
 }
 export default function AllVideoCards() {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+    const [videosData, setVideosData] = useState([])
+    // console.log(videosData, "videosData");
 
     const router = useRouter()
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -147,6 +152,33 @@ export default function AllVideoCards() {
         },
     ];
 
+    const getVideoData = async () => {
+        const url = "/medias/videos";
+        try {
+
+            const data = await getDataApi(url);
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setVideosData(data.data)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
+
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await getVideoData();
+        };
+        callApi();
+    }, []);
+
+
     return (
         <div className='py-5 px-2 xl:px-20  '>
             <div className=' flex items-center gap-x-3'>
@@ -194,15 +226,15 @@ export default function AllVideoCards() {
                     <TabPanel value={value} index={0}>
                         <div className='pb-10'>
                             <NewRealeasecard
-                                videoitemList={videoitemList}
+                                videoitemList={videosData}
                             />
 
                         </div>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <div className='pb-10'>
-                            <NewRealeasecard
-                                videoitemList={videoitemList}
+                            <HolytuneExclusiveCard
+                                videoitemList={videosData}
                             />
 
                         </div>
@@ -210,7 +242,7 @@ export default function AllVideoCards() {
                     <TabPanel value={value} index={2}>
                         <div className='pb-10'>
                             <NewRealeasecard
-                                videoitemList={videoitemList}
+                                videoitemList={videosData}
                             />
 
                         </div>

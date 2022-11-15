@@ -4,9 +4,53 @@ import WestIcon from '@mui/icons-material/West';
 import { useRouter } from 'next/router';
 import artist from "../../Assets/image/artist.png"
 import Image from 'next/image';
+import { IMAGE_BASE_URL } from '../../utils/constants';
+import { getDataApi } from '../../services/api.service';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { AlbumInfo } from '../../models';
 const ArtistViewAll = () => {
 
+
     const router = useRouter()
+    const [artistData, setArtistData] = useState<AlbumInfo>()
+    console.log(artistData, "artistData");
+
+
+
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
+    const getArtistData = async () => {
+        const url = "/artists";
+        try {
+
+            const data = await getDataApi(url);
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setArtistData(data.data)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
+
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await getArtistData();
+        };
+        callApi();
+    }, []);
     const artistlist = [
         {
             "id": "1",
@@ -134,18 +178,26 @@ const ArtistViewAll = () => {
         <div className=' p-5 xl:px-20 ' >
             <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
             <div className=" md:px-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5 cursor-pointer  py-3 text-center pb-16"  >
-                {artistlist.map((artist) => (
-                    <div key={artist.id}>
-                        <Link href="./all_artist/artist_profile">
+                {artistData?.map((artist) => (
+                    <div key={artist?.id}>
+                        <Link href={`./all_artist/${artist?.id}`}>
                             <a>
                                 <div className='grid place-items-center'>
 
                                     <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden shadow-md border hover:border-sky-500   ">
-                                        <Image className=" " src={artist.img} alt="artistimage" />
+                                        <Image
+                                            className="rounded-2xl"
+                                            loader={myLoader}
+                                            src={artist?.imageUrl}
+                                            width={160}
+                                            height={160}
+                                            alt=""
+                                        />
+                                        {/* <Image className=" " src={artist.img} alt="artistimage" /> */}
                                     </div>
                                     <div className=' text-center'>
-                                        <h1>{artist.title}</h1>
-                                        <h1>{artist.numOfSongs}</h1>
+                                        <h1>{artist?.name}</h1>
+                                        <h1>{artist?.medias?.length}</h1>
                                     </div>
 
                                 </div>
