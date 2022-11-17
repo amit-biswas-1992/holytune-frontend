@@ -44,6 +44,27 @@ export const getDataApiWithoutToken = async (
   return response.json();
 };
 
+export const updateProfileApi = async (endpoint: string, options: any = {}) => {
+  console.log(options, "options from update");
+
+  const baseUrl = BASE_URL || "http://localhost:3000";
+  const url = `${baseUrl}${VERSION}${endpoint}`;
+  const userToken = localStorage.getItem("user_token");
+  console.log(userToken, "user data token");
+
+  const response = await fetch(url, {
+    body: options,
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+      "Content-Type": "application/json",
+      ...(options.headers || {}),
+    },
+  });
+
+  return response.json();
+};
+
 // export const callApiGetWithoutToken = async (
 //   endpoint: string,
 //   options: any = {}
@@ -59,27 +80,6 @@ export const getDataApiWithoutToken = async (
 //   });
 
 //   return response.json();
-// };
-
-// export const updateProfileApi = async (endpoint: string, options: any = {}) => {
-//   //   console.log(endpoint, options);
-//   const formdata = new FormData();
-//   formdata.append("name", options.name);
-//   formdata.append("user_image", options.userimg);
-
-//   const id = options.userid;
-
-//   const requestOptions = {
-//     method: "PATCH",
-//     body: formdata,
-//   };
-
-//   await fetch(`${BASE_URL}${VERSION}${endpoint}${id}`, requestOptions)
-//     .then((response) => response.text())
-//     .then((result) => {
-//       console.log(result);
-//     })
-//     .catch((error) => console.log("error", error));
 // };
 
 // export const searchApi = async (endpoint: string, options: any = {}) => {

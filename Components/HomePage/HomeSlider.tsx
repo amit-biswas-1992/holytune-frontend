@@ -104,48 +104,7 @@ const HomeSlider = (homeSlider: any) => {
           </div>
         ))}
 
-        {/* <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage2} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage3} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div>
-        <div >
-          <div className={`${style.sliderContent}  px-3 `} >
-            <Image src={caruselimage4} alt="caruselimage" width={350} height={200}
-            />
-          </div>
-        </div> */}
+   
       </Slider>
     </div>
   );

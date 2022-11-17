@@ -123,7 +123,7 @@ function SpecificAlbum(albumData: any) {
                 <div>
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
                         {albumDatas?.medias?.map((album: any) => (
-                            <Link href="../../musics" key={album.id} >
+                            <Link href={`../../musics/${album.id}`} key={album.id} >
                                 <a>
                                     <div className=" w-full my-3 flex gap-3 items-center  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm  "
                                     >

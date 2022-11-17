@@ -97,7 +97,7 @@ const PopularArtistSlider = (popularArtistSlider: any) => {
             <Slider {...settings}  >
                 {popularArtistInfo?.map((elem: any) => (
                     <div className="px-2" key={elem.id} >
-                        <Link href="./all_artist/artist_profile">
+                        <Link href={`./all_artist/${elem?.id}`}>
                             <a>
                                 <div className=" grid place-items-center overflow-hidden  ">
                                     <div className="bg-cmnbg w-32 h-32 md:w-40 md:h-40  rounded-full  overflow-hidden  ">

@@ -114,12 +114,13 @@ const AudioPlayer = (audioPlayer: any) => {
                         <div className={`${style.sliderContent} bg-cmnbg rounded-xl flex items-center justify-around  p-3 `} >
                             <Image src={caruselimage} alt="caruselimage"
                             />
+                            
                             <div className=" text-center">
                                 <p className="text-sm xl:text-lg  font-bold  text-heading">{elem?.name}</p>
                                 <p className="  text-sky-600 text-sm xl:text-lg  font-bold ">Islamic Song</p>
                                 <p className="text-xs xl:text-sm  text-heading">2022 | {elem?.duration / 60} min</p>
                             </div>
-                            <Link href="./musics">
+                            <Link href={`./musics/${elem?.id}`}>
                                 <a>
                                     <div className=" text-center bg-sky-500  hover:bg-sky-600 rounded-full  text-white">
                                         <PlayArrowIcon className="" fontSize="large" />

@@ -94,21 +94,17 @@ const Album = (albumslider: any) => {
 
             </div>
             <Slider {...settings}  >
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Gazal</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
 
-
-                    </div>
-                </div>
-                {albumsliderInfo?.map((album:any) => (
+                {albumsliderInfo?.map((album: any) => (
                     <div className="px-2" key={album.id} >
                         <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                            <Image width={120} src={caruselimage} alt="caruselimage"
-                            />
+                            <Link href={`../all_albums/${album.id}`}>
+                                <a>
+                                    <Image width={120} src={caruselimage} alt="caruselimage"
+                                    />
+                                </a>
+                            </Link>
+
                             <p className="text-sm xl:text-lg   text-heading">{album?.name}</p>
                             <p className="text-xs xl:text-sm   text-heading">{album?.medias?.length} Songs</p>
 

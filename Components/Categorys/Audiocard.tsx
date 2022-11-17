@@ -112,7 +112,7 @@ export default function Audiocard(audios: any) {
                 <div>
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
                         {audio?.map((album: any) => (
-                            <Link href="../../musics" key={album.id}>
+                            <Link href={`../../musics/${album.id} `} key={album.id}>
                                 <a>
                                     <div className=" my-3  grid grid-cols-3  rounded-xl hover:border hover:border-sky-500  cursor-pointer shadow-sm "
                                     >
@@ -134,7 +134,7 @@ export default function Audiocard(audios: any) {
                                                 <h5 className=" text-xs md:text-base font-medium text-left" >{album?.artistName}</h5>
                                             </div>
                                         </div>
-                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album?.duration}</h5>
+                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album?.duration / 60} min</h5>
                                     </div>
                                 </a>
                             </Link>

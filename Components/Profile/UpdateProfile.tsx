@@ -4,46 +4,78 @@ import { useEffect, useState } from "react";
 
 import UserInfo from './../../models/userInfo';
 import { toast } from "react-toastify";
-import { callApi, updateProfileApi } from "../../services/api.service";
+import { getDataApi, updateProfileApi } from "../../services/api.service";
 import RegisterAnimation from './../AuthPage/RegisterAnimation';
 import Updateanimation from './Updateanimation';
 import WestIcon from "@mui/icons-material/West";
+import { IMAGE_BASE_URL } from '../../utils/constants';
 const UpdateProfile = () => {
+
+    const router = useRouter()
+
     const [userinfo, setUserinfo] = useState<UserInfo>({});
     console.log(userinfo, "userinfo");
-    const router = useRouter()
+
     const [userName, setUserName] = useState("");
+    const [userEmail, setuserEmail] = useState("");
     const [img, setImg] = useState(null);
-    const apiCall = async () => {
 
-        const url = "/core/get-user-profile/";
+    const [loading, setloading] = useState(false)
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+    };
+
+    const getprofileData = async () => {
+        const url = "/users/profile";
         try {
-            const ApiCall = await callApi(url);
-            // console.log(ApiCall.user, "ApiCall.user");
+            setloading(true)
+            const data = await getDataApi(url);
 
-            setUserinfo(ApiCall.user);
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setUserinfo(data.data)
+            setloading(false)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
 
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await getprofileData();
+        };
+        callApi();
+    }, []);
+    const updateProfile = async () => {
+        // const name = userName ? userName : userinfo?.fullName;
+        // const email = userEmail ? userEmail : userinfo?.email;
+
+        // const userimg = img ? img : userinfo.user_image;
+        console.log(userName, userEmail, "user");
+
+        const data = {
+            fullName: userName ? userName : userinfo?.fullName,
+            email: userEmail ? userEmail : userinfo?.email,
+            // userImage: "",
+        };
+        const url = "/users/profile";
+        try {
+            const ApiCall = await updateProfileApi(url, JSON.stringify(data));
+            console.log(ApiCall, "ApiCall")
+            toast.success("Successfully Updated");
+            // router.push("../profile");
         } catch (err) {
             console.log(err);
         }
-    };
-    useEffect(() => {
-        apiCall();
-    }, []);
-    const updateProfile = async () => {
-        // const name = userName ? userName : userinfo.name;
-        // const userid = userinfo.id;
-        // const userimg = img ? img : userinfo.user_image;
-        // const data = { name, userid, userimg };
-        // const url = "/core/update-user-profile/";
-        // try {
-        //     const ApiCall = await updateProfileApi(url, data);
-        //     toast.success("Successfully Updated");
 
-        // } catch (err) {
-        //     console.log(err);
-        // }
-        router.push("../profile");
     };
 
     const onImageChange = (e: any) => {
@@ -51,7 +83,7 @@ const UpdateProfile = () => {
         setImg(file);
     };
     return (
-        <div className="py-5 px-2 xl:px-20  ">
+        <div className="pt-5 pb-16 px-2 xl:px-20   ">
             <div className=" flex items-center gap-x-3">
                 <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className="text-lg xl:text-2xl font-bold">Update Profile</p>
@@ -64,11 +96,20 @@ const UpdateProfile = () => {
 
                     <label className=" font-semibold text-lg">Enter your Name</label>
                     <input
-                        className="w-full py-3 my-2  bg-white text-lg  border border-sky-400 hover:border-sky-500 rounded-md hover:shadow-md"
+                        className="w-full py-3 px-2 my-2  bg-white text-lg  border border-sky-400 hover:border-sky-500 rounded-md hover:shadow-md"
                         type="text"
-                        // defaultValue={userinfo.name}
+                        defaultValue={userinfo?.fullName}
                         onChange={(e) => {
                             setUserName(e.target.value);
+                        }}
+                    />
+                    <label className=" font-semibold text-lg">Enter your Email</label>
+                    <input
+                        className="w-full py-3 px-2 my-2  bg-white text-lg  border border-sky-400 hover:border-sky-500 rounded-md hover:shadow-md"
+                        type="text"
+                        defaultValue={userinfo?.email}
+                        onChange={(e) => {
+                            setuserEmail(e.target.value);
                         }}
                     />
                     <p className=" font-semibold text-lg pb-2" >Enter Image</p>

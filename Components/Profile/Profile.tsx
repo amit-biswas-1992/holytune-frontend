@@ -7,9 +7,66 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { useRouter } from 'next/router';
+import { IMAGE_BASE_URL } from '../../utils/constants';
+import { getDataApi } from '../../services/api.service';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { HomeInfo } from './../../models';
+import Loader from '../Animations/Loader';
 export default function Profile() {
 
   const router = useRouter()
+  const [profileData, setProfileData] = useState<HomeInfo>()
+  const [loading, setloading] = useState(false)
+  console.log(loading, "homeloading");
+
+  console.log(profileData, "profileData");
+
+
+
+  const myLoader = ({ src, width, quality }: any) => {
+    // console.log(src, "src");
+
+    // console.log(`${IMAGE_BASE_URL}${src}`);
+
+    return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+  };
+  const getprofileData = async () => {
+    const url = "/users/profile";
+    try {
+      setloading(true)
+      const data = await getDataApi(url);
+
+      if (data.statusCode) {
+        console.log('this block')
+        // toast.warning("Please Input a correct Number");
+        return;
+      }
+      // console.log("dataforotp", data);
+      // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+      setProfileData(data.data)
+      setloading(false)
+      // navigate.push("../auth/verification");
+    } catch (err) {
+      toast.warning("somethoing wrong");
+    }
+
+  };
+  useEffect(() => {
+    const callApi = async () => {
+      await getprofileData();
+    };
+    callApi();
+  }, []);
+
+  if (loading === true) {
+    return (
+      <div className=" grid place-items-center xl:h-screen ">
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className="py-5 px-2 xl:px-20  ">
       <div className=" flex items-center gap-x-3">
@@ -24,9 +81,9 @@ export default function Profile() {
               <Image className=" " src={artistimg} alt="artistimage" />
             </div>
             <div>
-              <h1 className=" font-bold text-xl ">Ebrahim Islam</h1>
-              <p className=" text-base font-medium">+8801670070109</p>
-              <p className=" text-base font-medium">istiahmed@gmail.com</p>
+              <h1 className=" font-bold text-xl first-letter:uppercase ">{profileData?.fullName}</h1>
+              <p className=" text-base font-medium">{profileData?.msisdn}</p>
+              <p className=" text-base font-medium">{profileData?.email}</p>
             </div>
 
           </div>
