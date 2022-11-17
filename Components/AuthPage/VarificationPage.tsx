@@ -22,7 +22,7 @@ function VarificationPage() {
   const [timeOut, setTimeOut] = useState(false);
 
   useEffect(() => {
-    const login_Data = JSON.parse(localStorage.getItem("msisdn"));
+    const login_Data = JSON.parse(localStorage.getItem("msisdn") || '{}');
 
     setNum(login_Data);
 
@@ -91,7 +91,7 @@ function VarificationPage() {
 
 
       localStorage.setItem("login_response", JSON.stringify(data.receiver));
-      const login_Data = JSON.parse(localStorage.getItem("msisdn"));
+      const login_Data = JSON.parse(localStorage.getItem("msisdn") || '{}');
       console.log(login_Data, "login_Data resend");
 
 
