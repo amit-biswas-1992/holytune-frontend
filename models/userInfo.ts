@@ -4,7 +4,7 @@ interface UserInfo {
   deletedat?: Date;
   email?: string;
   id?: string;
-  name?: string;
+  fullName?: string;
   password?: string;
   phone?: string;
   updatedAt?: Date;

@@ -5,9 +5,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import caruselimage from "../../Assets/image/music.svg";
+import { IMAGE_BASE_URL } from "../../utils/constants";
 
 import style from "./HomePage.module.css";
-const Album = () => {
+import nullimg from "../../Assets/image/notfound.png"
+
+const Album = (albumslider: any) => {
+    const albumsliderInfo = albumslider?.albumslider;
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
     const settings = {
         // // dots: true,
         infinite: true,
@@ -82,88 +94,25 @@ const Album = () => {
 
             </div>
             <Slider {...settings}  >
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Gazal</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
 
+                {albumsliderInfo?.map((album: any) => (
+                    <div className="px-2" key={album.id} >
+                        <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
+                            <Link href={`../all_albums/${album.id}`}>
+                                <a>
+                                    <Image width={120} src={caruselimage} alt="caruselimage"
+                                    />
+                                </a>
+                            </Link>
 
+                            <p className="text-sm xl:text-lg   text-heading">{album?.name}</p>
+                            <p className="text-xs xl:text-sm   text-heading">{album?.medias?.length} Songs</p>
+
+                        </div>
                     </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Surah</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
+                ))}
 
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Story</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
 
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Gazal</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Surah</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Story</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Gazal</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Surah</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Story</p>
-                        <p className="text-xs xl:text-sm   text-heading">50 Songs</p>
-
-                    </div>
-                </div>
 
 
 

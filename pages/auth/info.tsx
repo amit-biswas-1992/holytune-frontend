@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { toast } from "react-toastify";
 
-import { createUserProfile } from './../../services/api.service';
+import { loginApi, registerWithToken } from './../../services/api.service';
 import RegisterAnimation from './../../Components/AuthPage/RegisterAnimation';
 const Register = () => {
   const navigate = useRouter();
@@ -15,7 +15,7 @@ const Register = () => {
   console.log(userNum);
 
   // useEffect(() => {
-  //   const loginData = JSON.parse(localStorage.getItem('login_response'));
+  //   const loginData = JSON.parse(localStorage.getItem('msisdn'));
 
   //   setUserNum(loginData);
 
@@ -27,27 +27,27 @@ const Register = () => {
 
   const createProfile = async () => {
 
-    const datakey = { userNum, userName };
+    const datakey = { fullName: userName };
     console.log(datakey, "datakey");
 
-    const url = "/core/create-user-profile";
-    navigate.push("../popular_artist");
-    // try {
-    //   const data = await createUserProfile(url, datakey);
-    //   if (data.statusCode) {
-    //     console.log('this block')
-    //     toast.warning("Please Input Your Name")
-    //     return;
-    //   }
+    const url = "/auth/register";
+    // navigate.push("../popular_artist");
+    try {
+      const data = await registerWithToken(url, datakey);
+      if (data.statusCode) {
+        console.log('this block')
+        toast.warning("Please Input Your Name")
+        return;
+      }
+      console.log(data, "data from register");
 
-    //   localStorage.setItem("user_token", data.token);
+      localStorage.setItem("user_token", data.token);
+      navigate.push("../popular_artist");
+      toast.success("Login Successfull");
+    } catch (error: any) {
+      toast.warning("Please Input Your Name")
 
-    //   navigate.push("../home");
-    //   toast.success("Login Successfull");
-    // } catch (error: any) {
-    //   toast.warning("Please Input Your Name")
-
-    // }
+    }
 
 
   };
@@ -62,7 +62,10 @@ const Register = () => {
         <div className='mx-4'>
           <form action="/send-data-here" method="post">
             <label>Enter your Name</label>
-            <input autoFocus className='w-full py-3 px-3 my-2 bg-white text-xl text-black border-2 border-sky-600' type="text" id="text" name="text"
+            <input
+              autoFocus
+              className='w-full py-3 px-3 my-2 bg-white text-xl text-black border-2 border-sky-600' type="text" id="text"
+              name="text"
               placeholder='Please Input your name '
               required
               onChange={handleValueChange}

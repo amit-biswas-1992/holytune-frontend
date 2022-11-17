@@ -8,14 +8,26 @@ import caruselimage from "../../Assets/image/category1.svg";
 import caruselimage2 from "../../Assets/image/category2.svg";
 import caruselimage3 from "../../Assets/image/category3.svg";
 import caruselimage4 from "../../Assets/image/category4.svg";
+import nullimg from "../../Assets/image/notfound.png"
+import { IMAGE_BASE_URL } from "../../utils/constants";
 import style from "./HomePage.module.css";
-const ExploreCategory = () => {
+const ExploreCategory = (exploreCategory: any) => {
+    // console.log(exploreCategory, "exploreCategory")
+    const exploreCategoryInfo = exploreCategory?.exploreCategory;
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
     const settings = {
         // // dots: true,
         infinite: true,
         speed: 2000,
-        slidesToShow: 5,
-        slidesToScroll: 3,
+        slidesToShow: 4,
+        slidesToScroll: 1,
         initialSlide: 0,
         // autoplay: true,
         // autoplaySpeed: 3000,
@@ -26,7 +38,7 @@ const ExploreCategory = () => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
                     // autoplay: true,
@@ -43,7 +55,7 @@ const ExploreCategory = () => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
-                    initialSlide: 2,
+                
                     infinite: true,
                     // autoplay: true,
                     // autoplaySpeed: 3000,
@@ -84,7 +96,26 @@ const ExploreCategory = () => {
 
             </div>
             <Slider {...settings}  >
-                <div >
+                {exploreCategoryInfo?.map((elem: any) => (
+                    <div key={elem?.id} >
+                        <Link href={`../categories/${elem.id}`}>
+                            <a>
+                                <div className={` w-full px-2 `} >
+                                    {elem?.imageUrl ? (<Image
+                                        className="rounded-2xl"
+                                        loader={myLoader}
+                                        src={elem?.imageUrl}
+                                        width={300} height={200}
+                                        alt=""
+                                    />) : (<Image src={nullimg} alt="caruselimage" width={300} height={200} />)}
+
+                                </div>
+                            </a>
+                        </Link>
+
+                    </div>
+                ))}
+                {/* <div >
                     <Link href="../categories/category_wise_media">
                         <a>
                             <div className=" w-full px-2  ">
@@ -93,68 +124,9 @@ const ExploreCategory = () => {
                         </a>
                     </Link>
 
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage2} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
+                </div> */}
 
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage3} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
 
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage4} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
-
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage2} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
-
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage3} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
-
-                </div>
-                <div >
-                    <Link href="../categories/category_wise_media">
-                        <a>
-                            <div className=" w-full px-2  ">
-                                <Image width={300} height={200} src={caruselimage4} alt="caruselimage" />
-                            </div>
-                        </a>
-                    </Link>
-
-                </div>
-              
             </Slider>
         </div>
     );
