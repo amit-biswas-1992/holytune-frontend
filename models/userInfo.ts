@@ -5,6 +5,7 @@ interface UserInfo {
   email?: string;
   id?: string;
   fullName?: string;
+  userImage?: any;
   password?: string;
   phone?: string;
   updatedAt?: Date;

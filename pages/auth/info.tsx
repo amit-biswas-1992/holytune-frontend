@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 import { loginApi, registerWithToken } from './../../services/api.service';
 import RegisterAnimation from './../../Components/AuthPage/RegisterAnimation';
-const Register = () => {
+const RegisterInfo = () => {
   const navigate = useRouter();
   const [userName, setUserName] = useState('');
   console.log(userName);
@@ -41,8 +41,8 @@ const Register = () => {
       }
       console.log(data, "data from register");
 
-      localStorage.setItem("user_token", data.token);
-      navigate.push("../popular_artist");
+      // localStorage.setItem("user_token", data.token);
+      navigate.push("../home");
       toast.success("Login Successfull");
     } catch (error: any) {
       toast.warning("Please Input Your Name")
@@ -86,4 +86,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterInfo

@@ -7,101 +7,82 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
+import { getDataApi } from "../../services/api.service";
+import Loader from './../../Components/Animations/Loader';
 
 
 const Faqs = () => {
     const router = useRouter();
+
+    const [loading, setloading] = useState(false)
+    const [faqsData, setFaqsData] = useState([])
+    console.log(faqsData, "faqsData");
+
+
+    const getfaqsData = async () => {
+        const url = "/faqs";
+        try {
+            setloading(true)
+            const data = await getDataApi(url);
+
+            if (data.statusCode) {
+                console.log('this block')
+                // toast.warning("Please Input a correct Number");
+                return;
+            }
+            // console.log("dataforotp", data);
+            // localStorage.setItem("msisdn", JSON.stringify(payload.msisdn));
+            setFaqsData(data.data)
+            setloading(false)
+            // navigate.push("../auth/verification");
+        } catch (err) {
+            toast.warning("somethoing wrong");
+        }
+
+    };
+    useEffect(() => {
+        const callApi = async () => {
+            await getfaqsData();
+        };
+        callApi();
+    }, []);
+    if (loading === true) {
+        return (
+            <div className=" grid place-items-center xl:h-screen ">
+                <Loader />
+            </div>
+        );
+    }
     return (
-        <div className="py-5 px-2 xl:px-20  ">
+        <div className="pt-5 pb-16 px-2 xl:px-20  ">
             <div className=" flex items-center gap-x-3">
                 <WestIcon onClick={() => router.back()} className=" hover:text-sky-600" fontSize="large" />
                 <p className="text-lg xl:text-2xl font-bold">FAQS</p>
             </div>
             <div className='mt-4'>
-                <div className='mb-4 font-body'>
-                    <Accordion className='  p-3 mx-4 rounded-2xl'>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className='text-black' />}
-                            aria-controls="panel1a-content"
-                            id="panel1a-header"
-                            className='rounded-2xl'>
-                            <Typography className='text-black'>What is Drama Buzz?</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className=''>
-                            <Typography className='text-black'>
-                                Drama Buzz is the streaming channel where user can enjoy drama.
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-                <div className='mb-4'>
-                    <Accordion className='  p-3 mx-4 rounded-2xl'>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className='text-black' />}
-                            aria-controls="panel2a-content"
-                            id="panel2a-header"
-                            className='rounded-2xl'>
-                            <Typography className='text-black'>How to subscribe?</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className=''>
-                            <Typography className='text-black'>
-                                To subscribe packages user have to download this apps first. After that they can buy any packages out of 2. Select any package -- go to the payment procedure – complete payment to subscribe.
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-                <div className='mb-4'>
-                    <Accordion className='  p-3 mx-4 rounded-2xl'>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className='text-black ml-auto' />}
-                            aria-controls="panel3a-content"
-                            id="panel3a-header"
-                            className='rounded-2xl'>
-                            <Typography className='text-black'>How to unsubscribe this service?</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className=''>
-                            <Typography className='text-black'>
-                                Please follow the step- (Profile – unsubscribe – confirm)
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-                <div className='mb-4'>
-                    <Accordion className='  p-3 mx-4 rounded-2xl'>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className='text-black ml-auto' />}
-                            aria-controls="panel3a-content"
-                            id="panel3a-header"
-                            className='rounded-2xl'>
-                            <Typography className='text-black'>Is there any cost for watching drama?</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className=''>
-                            <Typography className='text-black'>
-                                Only need to subscriptions fee will be charged, after that it’s free to watch. Only consume date of internet to watch.
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-                <div className='mb-4'>
-                    <Accordion className='  p-3 mx-4 rounded-2xl'>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className='text-black ml-auto' />}
-                            aria-controls="panel3a-content"
-                            id="panel3a-header"
-                            className='rounded-2xl'>
-                            <Typography className='text-black'>How much money I have to pay to subscribe? </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails className=''>
-                            <Typography className='text-black'>
-                                There are 2 kinds of subscribe module <br />
-                                -	15 days package- 29 taka only<br />
-                                -	30 days package- 39 taka only
+                {faqsData?.map((faqs: any) => (
+                    <div key={faqs?.id} className='mb-4 font-body'>
+                        <Accordion className='  p-3 mx-4 rounded-2xl'>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon className='text-black' />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                                className='rounded-2xl'>
+                                <Typography className='text-black'>{faqs?.question}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails className=''>
+                                <Typography className='text-black'>
+                                    {faqs?.answer}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    </div>
+                ))}
 
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
+
             </div>
             <div className=''>
             </div>

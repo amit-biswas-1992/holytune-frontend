@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import WestIcon from "@mui/icons-material/West";
 import Image from "next/image";
-import artistimg from "../../Assets/image/artist.png";
+import userimg from "../../Assets/image/userimg.png";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -25,11 +25,11 @@ export default function Profile() {
 
 
   const myLoader = ({ src, width, quality }: any) => {
-    // console.log(src, "src");
+    console.log(src, "src");
 
-    // console.log(`${IMAGE_BASE_URL}${src}`);
+    console.log(`${IMAGE_BASE_URL}/${src}`);
 
-    return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+    return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
 
   };
   const getprofileData = async () => {
@@ -74,12 +74,23 @@ export default function Profile() {
         <p className="text-lg xl:text-2xl font-bold"> Profile</p>
       </div>
 
-      <div className=" mx-6 xl:mx-44 ">
+      <div className=" mx-3 xl:mx-44 ">
         <div className=" grid place-items-center border bg-white rounded-lg py-3 xl:py-10 mt-5  overflow-hidden ">
           <div className=" flex justify-between items-center  gap-5 xl:gap-x-16">
             <div className="  bg-cmnbg w-20 h-20 md:w-28 md:h-28  rounded-full  overflow-hidden shadow-md border hover:border-sky-500   ">
-              <Image className=" " src={artistimg} alt="artistimage" />
+              {profileData?.userImage ? (<Image
+                // className="rounded-2xl"
+                loader={myLoader}
+                src={profileData?.userImage}
+                width={112}
+                height={112}
+                alt=""
+              />) : (<Image className=" " src={userimg} width={112}
+                height={112} alt="userimage" />)}
+
+              {/* <Image className=" " src={userimg} alt="artistimage" /> */}
             </div>
+            {/* <p>{profileData?.userImage}</p> */}
             <div>
               <h1 className=" font-bold text-xl first-letter:uppercase ">{profileData?.fullName}</h1>
               <p className=" text-base font-medium">{profileData?.msisdn}</p>

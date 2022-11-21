@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 import UserInfo from './../../models/userInfo';
 import { toast } from "react-toastify";
-import { getDataApi, updateProfileApi } from "../../services/api.service";
+import userimg from "../../Assets/image/userimg.png";
+import { getDataApi, imageUploadApi, updateProfileApi } from "../../services/api.service";
 import RegisterAnimation from './../AuthPage/RegisterAnimation';
 import Updateanimation from './Updateanimation';
 import WestIcon from "@mui/icons-material/West";
@@ -18,15 +19,58 @@ const UpdateProfile = () => {
 
     const [userName, setUserName] = useState("");
     const [userEmail, setuserEmail] = useState("");
-    const [img, setImg] = useState(null);
+    // const [img, setProfileImg] = useState(null);
+    const [processing, setProcessing] = useState(false);
+    const [profileImg, setProfileImg] = useState({ file: "", link: "" });
+    console.log(profileImg, "profileImg");
 
     const [loading, setloading] = useState(false)
-    const myLoader = ({ src, width, quality }: any) => {
-        // console.log(src, "src");
-        // console.log(`${IMAGE_BASE_URL}${src}`);
-        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
-    };
 
+    const myLoader = ({ src, width, quality }: any) => {
+        console.log(src, "src");
+
+        console.log(`${IMAGE_BASE_URL}/${src}`);
+
+        return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
+
+    };
+    const onProfileImgChange = async (e: any) => {
+        const file = e.target.files[0];
+        console.log(file, "file");
+        setProcessing(true);
+        // const validStatus = checkValidFile(file);
+
+        // setImgValidationStatus({ ...imageValidationStatus, proImg: validStatus });
+
+        // if (validStatus) { }
+
+        // const data = {
+        //     fullName: userName ? userName : userinfo?.fullName,
+        //     email: userEmail ? userEmail : userinfo?.email,
+        //     // userImage: "",
+        // };
+        const url = "/file-uploads/image";
+        try {
+            const data = await imageUploadApi(url, file);
+            console.log(data?.data?.imageObject, "data")
+            if (data?.data?.imageObject) {
+                setProfileImg({
+                    ...profileImg,
+                    link: data?.data?.imageObject.path,
+                    file: data?.data?.imageObject.originalname,
+                });
+                // toast.success("সফলভাবে ছবি আপলোড হয়েছে ");
+                setProcessing(false);
+            }
+            // toast.success("Successfully Upload");
+            // router.push("../profile");
+        } catch (err) {
+            console.log(err);
+        }
+
+
+
+    };
     const getprofileData = async () => {
         const url = "/users/profile";
         try {
@@ -64,24 +108,21 @@ const UpdateProfile = () => {
         const data = {
             fullName: userName ? userName : userinfo?.fullName,
             email: userEmail ? userEmail : userinfo?.email,
-            // userImage: "",
+            userImage: profileImg.link ? profileImg.link : userinfo?.userImage,
         };
         const url = "/users/profile";
         try {
             const ApiCall = await updateProfileApi(url, JSON.stringify(data));
             console.log(ApiCall, "ApiCall")
             toast.success("Successfully Updated");
-            // router.push("../profile");
+            router.push("../profile");
         } catch (err) {
             console.log(err);
         }
 
     };
 
-    const onImageChange = (e: any) => {
-        const file = e.target.files[0];
-        setImg(file);
-    };
+
     return (
         <div className="pt-5 pb-16 px-2 xl:px-20   ">
             <div className=" flex items-center gap-x-3">
@@ -89,10 +130,24 @@ const UpdateProfile = () => {
                 <p className="text-lg xl:text-2xl font-bold">Update Profile</p>
             </div>
             <div className=" p-2  grid place-items-center h-screen ">
-                <Updateanimation />
+                {/* <Updateanimation /> */}
                 <div className="mx-4">
-                    {/* <Link href="../profile/profile">
-            <a> */}
+                    <div className="grid place-items-center  ">
+                        <div className="bg-cmnbg w-20 h-20 md:w-40 md:h-40  rounded-full  overflow-hidden shadow-md border hover:border-sky-500   ">
+                            {userinfo?.userImage ? (<Image
+                                // className="rounded-2xl"
+                                loader={myLoader}
+                                src={userinfo?.userImage}
+                                width={160}
+                                height={160}
+                                alt=""
+                            />) : (<Image className=" " src={userimg} width={112}
+                                height={112} alt="userimage" />)}
+
+                            {/* <Image className=" " src={userimg} alt="artistimage" /> */}
+                        </div>
+                    </div>
+
 
                     <label className=" font-semibold text-lg">Enter your Name</label>
                     <input
@@ -124,7 +179,7 @@ const UpdateProfile = () => {
                             style={{ display: "none" }}
                             id="profileimg"
                             name="profileimg"
-                            onChange={onImageChange}
+                            onChange={onProfileImgChange}
                             type="file"
                         />
                         <Button
@@ -141,18 +196,28 @@ const UpdateProfile = () => {
                             Upload Your Profile Image
                         </Button>
                     </label>
+                    {profileImg?.file ? (<p className=" text-right ">Uploaded File Name: {profileImg?.file}</p>) : (null)}
+
                     {/* <input
               onClick={updateProfile}
               value="Submit"
               className="w-full py-4 my-4 mt-8 px-10 bg-sky-600 hover:bg-sky-700  text-center"
             /> */}
-                    <button
+                    {processing === true ? (<button
+
+
+                        disabled
+                        className="w-full py-4 my-4 mt-8 px-10 text-lg font-bold bg-slate-200   text-center"
+                    >
+                        Update
+                    </button>) : (<button
 
                         onClick={updateProfile}
                         className="w-full py-4 my-4 mt-8 px-10 text-lg font-bold bg-sky-600 hover:bg-sky-700 text-white  text-center"
                     >
                         Update
-                    </button>
+                    </button>)}
+
                     {/* </a>
             </Link> */}
 

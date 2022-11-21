@@ -202,3 +202,30 @@ export const registerWithToken = async (
     return e;
   }
 };
+
+export const imageUploadApi = async (endpoint: string, options: any = {}) => {
+  console.log("endpoint holo", endpoint);
+  console.log("options er data", options);
+
+  const userToken = localStorage.getItem("user_token");
+  const myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${userToken}`);
+  const formdata = new FormData();
+  formdata.append("image", options);
+  // formdata.append("image", options.u_nid_img);
+  // formdata.append("image", options.u_passport_img);
+  // formdata.append("image", options.u_d_license_img);
+  // formdata.append("image", options.u_tin_img);
+
+  // const baseUrl = BASE_URL || "http://localhost:5005";
+  const url = `${BASE_URL}${VERSION}${endpoint}`;
+  //console.log(url, "url");
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: myHeaders,
+    body: formdata,
+  });
+
+  return response.json();
+};

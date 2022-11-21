@@ -35,6 +35,21 @@ const AudioPlayer = (audioPlayer: any) => {
 
         responsive: [
             {
+                breakpoint: 1424,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    // autoplay: true,
+                    // autoplaySpeed: 3000,
+                    // pauseOnHover: true,
+                    // // dots: true,
+                    // arrows: true,
+
+
+                }
+            },
+            {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -50,7 +65,7 @@ const AudioPlayer = (audioPlayer: any) => {
                 }
             },
             {
-                breakpoint: 800,
+                breakpoint: 900,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -111,12 +126,15 @@ const AudioPlayer = (audioPlayer: any) => {
             <Slider {...settings}  >
                 {audioPlayerInfo?.map((elem: any) => (
                     <div className="px-2" key={elem?.id} >
-                        <div className={`${style.sliderContent} bg-cmnbg rounded-xl flex items-center justify-around  p-3 `} >
-                            <Image src={caruselimage} alt="caruselimage"
-                            />
-                            
-                            <div className=" text-center">
-                                <p className="text-sm xl:text-lg  font-bold  text-heading">{elem?.name}</p>
+                        <div className={`${style.sliderContent} bg-cmnbg rounded-xl flex items-center justify-around w-full p-3 `} >
+                            <div className="">
+                                <Image src={caruselimage} alt="caruselimage"
+                                />
+                            </div>
+
+
+                            <div className=" text-center w-full">
+                                <p className="text-sm xl:text-lg  font-bold  text-heading">{elem?.name.slice(0, 20)}...</p>
                                 <p className="  text-sky-600 text-sm xl:text-lg  font-bold ">Islamic Song</p>
                                 <p className="text-xs xl:text-sm  text-heading">2022 | {elem?.duration / 60} min</p>
                             </div>

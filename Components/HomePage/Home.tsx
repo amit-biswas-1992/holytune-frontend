@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import SearchIcon from '@mui/icons-material/Search';
-import userimg from "../../Assets/image/artist.png"
+
 import HomeSlider from './HomeSlider';
 import ExploreCategory from './ExploreCategory';
 import NewReleaseVideo from './NewReleaseVideo';
@@ -11,7 +11,7 @@ import Mood from './Mood';
 import Album from './Album';
 import SuggestVideos from './SuggestVideos';
 import Podcast from './Podcast';
-
+import userimg from "../../Assets/image/userimg.png";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Link from 'next/link';
@@ -76,7 +76,7 @@ const Home = () => {
 
         // console.log(`${IMAGE_BASE_URL}${src}`);
 
-        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+        return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
 
     };
     const gethomeData = async () => {
@@ -122,7 +122,20 @@ const Home = () => {
 
                         <div className=' w-10 h-10 border border-heading cursor-pointer  hover:border-sky-600 rounded-full'>
                             <Link href="/profile">
-                                <a> <Image className=" rounded-full" src={userimg} alt="artistimage" /></a>
+                                <a>
+                                    {homeData?.userInfo?.userImage ? (<Image
+                                        // className="rounded-2xl"
+                                        loader={myLoader}
+                                        src={homeData?.userInfo?.userImage}
+                                        width={40}
+                                        height={40}
+                                        alt=""
+                                    />) : (<Image className=" " src={userimg} width={40}
+                                        height={40} alt="userimage" />)}
+
+                                    {/* <Image className=" rounded-full" src={userimg} alt="artistimage" /> */}
+
+                                </a>
                             </Link>
 
                         </div>
