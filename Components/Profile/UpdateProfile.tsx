@@ -135,14 +135,14 @@ const UpdateProfile = () => {
                     <div className="grid place-items-center  ">
                         <div className="bg-cmnbg w-20 h-20 md:w-40 md:h-40  rounded-full  overflow-hidden shadow-md border hover:border-sky-500   ">
                             {userinfo?.userImage ? (<Image
-                                // className="rounded-2xl"
+                                className="rounded-full"
                                 loader={myLoader}
                                 src={userinfo?.userImage}
                                 width={160}
                                 height={160}
                                 alt=""
-                            />) : (<Image className=" " src={userimg} width={112}
-                                height={112} alt="userimage" />)}
+                            />) : (<Image className="rounded-full " src={userimg} width={160}
+                                height={160} alt="userimage" />)}
 
                             {/* <Image className=" " src={userimg} alt="artistimage" /> */}
                         </div>

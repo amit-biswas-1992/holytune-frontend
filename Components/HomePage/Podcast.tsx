@@ -1,13 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import nullimg from "../../Assets/image/notfound.png"
+import { IMAGE_BASE_URL } from "../../utils/constants";
 import img1 from "../../Assets/image/sliderimg1.png";
 import img2 from "../../Assets/image/sliderimg2.png";
 import img3 from "../../Assets/image/sliderimg3.png";
 import img4 from "../../Assets/image/sliderimg4.png";
 import style from "./HomePage.module.css";
-const Podcast = () => {
+const Podcast = (allPodcasts: any) => {
+
+    const allPodcastsInfo = allPodcasts?.allPodcasts;
+    const myLoader = ({ src, width, quality }: any) => {
+        // console.log(src, "src");
+
+        // console.log(`${IMAGE_BASE_URL}${src}`);
+
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
+
+    };
     const podcastlist = [
         {
             "id": "1",
@@ -103,7 +114,7 @@ const Podcast = () => {
 
             <div className=" flex justify-between items-center mb-5 text-heading">
                 <h1 className=" font-bold text-lg md:text-xl 2xl:text-2xl">Podcast</h1>
-                <Link href="./all_videos">
+                <Link href="./all_podcast">
                     <a>
                         <button className=" font-bold text-xs md:text-base hover:text-sky-500">View All</button>
                     </a>
@@ -111,21 +122,36 @@ const Podcast = () => {
             </div>
             <div className={`${style.podcast}  md:px-10`}>
                 <div>
-                    {podcastlist.map((podcast) => (
-                        <div key={podcast.id} className=" my-3  grid grid-cols-3  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm "
-                        >
-                            <div className={`${style.sliderContent} col-span-2 flex items-center  justify-start gap-x-5 rounded-xl overflow-hidden pr-2 `} >
-                                <Image src={podcast.img} alt="caruselimage" width={100} height={100}
-                                />
-                                <div className=" col-span-2 flex justify-center items-start flex-col " >
-                                    <h5 className=" text-base md:text-xl font-bold text-left">{podcast.name}</h5>
-                                    <h5 className=" text-sm md:text-lg font-medium text-left" >{podcast.arrtistName}</h5>
-                                </div>
+                    {allPodcastsInfo?.map((podcast: any) => (
+                        <div key={podcast.id}>
+                            <Link href={`./musics/${podcast?.id}`}>
+                                <a>
+                                    <div className=" my-3  grid grid-cols-3  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm "
+                                    >
+                                        <div className={`${style.sliderContent} col-span-2 flex items-center  justify-start gap-x-5 rounded-xl overflow-hidden pr-2 `} >
+                                            {podcast?.thumbnailUrl ? (<Image
+                                                className="rounded-2xl"
+                                                loader={myLoader}
+                                                src={podcast?.thumbnailUrl}
+                                                width={100}
+                                                height={100}
+                                                alt=""
+                                            />) : (<Image src={nullimg} alt="caruselimage" width={100} height={100} />)}
+                                            {/* <Image src={podcast.img} alt="caruselimage" width={100} height={100} /> */}
+                                            <div className=" col-span-2 flex justify-center items-start flex-col " >
+                                                <h5 className=" text-base md:text-xl font-bold text-left">{podcast?.name}</h5>
+                                                <h5 className=" text-sm md:text-lg font-medium text-left" >{podcast?.artists[0]?.name}</h5>
+                                            </div>
 
-                            </div>
+                                        </div>
 
-                            <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{podcast.duration}</h5>
+                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{podcast.duration / 60}min</h5>
+                                    </div>
+                                </a>
+                            </Link>
+
                         </div>
+
                     ))}
                 </div>
             </div>

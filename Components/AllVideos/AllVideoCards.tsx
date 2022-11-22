@@ -20,6 +20,7 @@ import { useRouter } from 'next/router';
 import { getDataApi } from '../../services/api.service';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
+import PodcastCard from './VideoCards/PodcastCard';
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -215,7 +216,9 @@ export default function AllVideoCards() {
                             >
                                 <Tab label="New Realease"  {...a11yProps(0)} />
                                 <Tab label="Holy Tune Exclusive" {...a11yProps(1)} />
-                                <Tab label="Sayed Ahmad Exclusive"  {...a11yProps(2)} />
+                                {/* <Tab label="Podcast's"  {...a11yProps(2)} /> */}
+                                <Tab label="Sayed Ahmad Exclusive"  {...a11yProps(3)} />
+
                                 {/* <Tab label="Video Ghazal" {...a11yProps(3)} /> */}
 
                             </Tabs>
@@ -239,7 +242,15 @@ export default function AllVideoCards() {
 
                         </div>
                     </TabPanel>
-                    <TabPanel value={value} index={2}>
+                    {/* <TabPanel value={value} index={2}>
+                        <div className='pb-10'>
+                            <PodcastCard
+                                videoitemList={videosData}
+                            />
+
+                        </div>
+                    </TabPanel> */}
+                    <TabPanel value={value} index={3}>
                         <div className='pb-10'>
                             <NewRealeasecard
                                 videoitemList={videosData}
@@ -247,6 +258,7 @@ export default function AllVideoCards() {
 
                         </div>
                     </TabPanel>
+
                 </div>
             </div>
         </div >

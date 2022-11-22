@@ -124,13 +124,13 @@ const Home = () => {
                             <Link href="/profile">
                                 <a>
                                     {homeData?.userInfo?.userImage ? (<Image
-                                        // className="rounded-2xl"
+                                        className="rounded-full"
                                         loader={myLoader}
                                         src={homeData?.userInfo?.userImage}
                                         width={40}
                                         height={40}
                                         alt=""
-                                    />) : (<Image className=" " src={userimg} width={40}
+                                    />) : (<Image className="rounded-full " src={userimg} width={40}
                                         height={40} alt="userimage" />)}
 
                                     {/* <Image className=" rounded-full" src={userimg} alt="artistimage" /> */}
@@ -203,7 +203,9 @@ const Home = () => {
                         <Mood />
                     </div>
                     <div className=' mb-5'>
-                        <Podcast />
+                        <Podcast
+                            allPodcasts={homeData?.allPodcasts}
+                        />
                     </div>
                     <div className=' mb-5'>
                         <Album
