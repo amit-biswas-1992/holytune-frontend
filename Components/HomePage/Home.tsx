@@ -76,7 +76,7 @@ const Home = () => {
 
         // console.log(`${IMAGE_BASE_URL}${src}`);
 
-        return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
 
     };
     const gethomeData = async () => {
@@ -200,7 +200,7 @@ const Home = () => {
                         />
                     </div>
                     <div className=' mb-5'>
-                        <Mood />
+                        <Mood allMoods={homeData?.allMoods} />
                     </div>
                     <div className=' mb-5'>
                         <Podcast

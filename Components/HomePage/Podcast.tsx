@@ -126,11 +126,11 @@ const Podcast = (allPodcasts: any) => {
                         <div key={podcast.id}>
                             <Link href={`./musics/${podcast?.id}`}>
                                 <a>
-                                    <div className=" my-3  grid grid-cols-3  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm "
+                                    <div className="  w-full my-3 flex gap-x-3 items-center  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm"
                                     >
-                                        <div className={`${style.sliderContent} col-span-2 flex items-center  justify-start gap-x-5 rounded-xl overflow-hidden pr-2 `} >
+                                        <div className={`h-full  `} >
                                             {podcast?.thumbnailUrl ? (<Image
-                                                className="rounded-2xl"
+                                                className="rounded-lg"
                                                 loader={myLoader}
                                                 src={podcast?.thumbnailUrl}
                                                 width={100}
@@ -138,14 +138,15 @@ const Podcast = (allPodcasts: any) => {
                                                 alt=""
                                             />) : (<Image src={nullimg} alt="caruselimage" width={100} height={100} />)}
                                             {/* <Image src={podcast.img} alt="caruselimage" width={100} height={100} /> */}
-                                            <div className=" col-span-2 flex justify-center items-start flex-col " >
-                                                <h5 className=" text-base md:text-xl font-bold text-left">{podcast?.name}</h5>
-                                                <h5 className=" text-sm md:text-lg font-medium text-left" >{podcast?.artists[0]?.name}</h5>
-                                            </div>
+
 
                                         </div>
+                                        <div className=" w-full " >
+                                            <h5 className=" text-base md:text-xl font-bold text-left">{podcast?.name}</h5>
+                                            <h5 className=" text-sm md:text-lg font-medium text-left" >{podcast?.artists[0]?.name}</h5>
+                                        </div>
 
-                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{podcast.duration / 60}min</h5>
+                                        <h5 className=" text-sm pr-5 text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{podcast.duration / 60}min</h5>
                                     </div>
                                 </a>
                             </Link>

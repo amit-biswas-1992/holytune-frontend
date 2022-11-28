@@ -1,6 +1,7 @@
 interface HomeInfo {
   randomVideos?: any;
   allPodcasts?: any;
+  allMoods?: any;
   allCategories?: any;
   latestVideos?: any;
   allAudio?: any;

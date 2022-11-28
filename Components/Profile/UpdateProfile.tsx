@@ -31,7 +31,7 @@ const UpdateProfile = () => {
 
         console.log(`${IMAGE_BASE_URL}/${src}`);
 
-        return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
+        return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
 
     };
     const onProfileImgChange = async (e: any) => {
@@ -108,7 +108,7 @@ const UpdateProfile = () => {
         const data = {
             fullName: userName ? userName : userinfo?.fullName,
             email: userEmail ? userEmail : userinfo?.email,
-            userImage: profileImg.link ? profileImg.link : userinfo?.userImage,
+            userImage: profileImg.link ? `/${profileImg.link}` : userinfo?.userImage,
         };
         const url = "/users/profile";
         try {

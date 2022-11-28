@@ -8,7 +8,9 @@ import "slick-carousel/slick/slick.css";
 import caruselimage from "../../Assets/image/music.svg";
 
 import style from "./HomePage.module.css";
-const Mood = () => {
+const Mood = (allMoods: any) => {
+
+    const allMoodsData = allMoods.allMoods
     const settings = {
         // // dots: true,
         infinite: true,
@@ -75,21 +77,29 @@ const Mood = () => {
 
             <div className=" flex justify-between items-center mb-5 text-heading">
                 <h1 className=" font-bold text-lg md:text-xl 2xl:text-2xl">Mood</h1>
-                <Link href="/all_albums">
+                <Link href="/moods">
                     <a>
                         <button className=" font-bold text-xs md:text-base hover:text-sky-500 ">View All</button>
                     </a>
                 </Link>
             </div>
             <Slider {...settings}  >
-                <div className="px-2" >
-                    <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
-                        <Image width={120} src={caruselimage} alt="caruselimage"
-                        />
-                        <p className="text-sm xl:text-lg   text-heading">Islamic Gazal</p>
+                {allMoodsData?.map((mood: any) => (
+                    <Link key={mood?.id} href={`../categories/${mood?.id}`}>
+                        <a>
+                            <div className="px-2" >
+                                <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
+                                    <Image width={120} src={caruselimage} alt="caruselimage"
+                                    />
+                                    <p className="text-sm xl:text-lg   text-heading">{mood?.name}</p>
 
-                    </div>
-                </div>
+                                </div>
+                            </div>
+                        </a>
+                    </Link>
+
+                ))}
+
                 <div className="px-2" >
                     <div className={`${style.sliderContent}  rounded-xl   p-3 `} >
                         <Image width={120} src={caruselimage} alt="caruselimage"

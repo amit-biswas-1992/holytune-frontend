@@ -27,9 +27,9 @@ export default function Profile() {
   const myLoader = ({ src, width, quality }: any) => {
     console.log(src, "src");
 
-    console.log(`${IMAGE_BASE_URL}/${src}`);
+    console.log(`${IMAGE_BASE_URL}${src}`);
 
-    return `${IMAGE_BASE_URL}/${src}?w=${width}&q=${quality || 75}`;
+    return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
 
   };
   const getprofileData = async () => {
