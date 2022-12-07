@@ -155,32 +155,34 @@ function AllMusics() {
 
                     <div className='px-5 xl:px-20 pb-20 pt-5'>
                         {audioData?.all?.map((album: any) => (
-                            <Link key={album.id} href="musics"><a>
-                                <div className="w-full my-3 flex gap-3 items-center  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm  "
-                                >
+                            <Link key={album.id} href={`musics/${album.id}`} >
+                                <a>
+                                    <div className="w-full my-3 flex gap-3 items-center  rounded-xl border hover:border-sky-500  cursor-pointer shadow-sm  "
+                                    >
 
 
-                                    <div className={` h-full  `} >
-                                        <Image src={albumcover} alt="albumcover" width={100} height={100}
-                                        />
+                                        <div className={` h-full  `} >
+                                            <Image src={albumcover} alt="albumcover" width={100} height={100}
+                                            />
+
+
+                                        </div>
+
+                                        <div className=" w-full " >
+                                            <h5 className=" text-base md:text-xl font-bold text-left ">{album.name}</h5>
+                                            <div className=" text-sm md:text-lg font-medium text-left" >{album?.artists?.map((artist: any) => (
+                                                <p key={artist.id}>{artist?.name}</p>
+                                            ))}</div>
+                                        </div>
+
+                                        <div className=" px-4">
+                                            <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album.duration / 60}min</h5>
+                                        </div>
 
 
                                     </div>
-
-                                    <div className=" w-full " >
-                                        <h5 className=" text-base md:text-xl font-bold text-left ">{album.name}</h5>
-                                        <div className=" text-sm md:text-lg font-medium text-left" >{album?.artists?.map((artist: any) => (
-                                            <p key={artist.id}>{artist?.name}</p>
-                                        ))}</div>
-                                    </div>
-
-                                    <div className=" px-4">
-                                        <h5 className=" text-sm text-gray-500 md:text-lg font-medium text-center flex justify-center items-center" >{album.duration / 60}min</h5>
-                                    </div>
-
-
-                                </div>
-                            </a></Link>
+                                </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

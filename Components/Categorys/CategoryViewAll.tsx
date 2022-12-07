@@ -27,7 +27,7 @@ export default function CategoryViewAll() {
         return `${IMAGE_BASE_URL}${src}?w=${width}&q=${quality || 75}`;
 
     };
-    const getVideoData = async () => {
+    const getCategoryData = async () => {
         const url = "/categories";
         try {
 
@@ -48,7 +48,7 @@ export default function CategoryViewAll() {
     };
     useEffect(() => {
         const callApi = async () => {
-            await getVideoData();
+            await getCategoryData();
         };
         callApi();
     }, []);

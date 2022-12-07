@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 export const getDataApi = async (endpoint: string, options: any = {}) => {
   const baseUrl = BASE_URL || "http://localhost:3000";
   const url = `${baseUrl}${VERSION}${endpoint}`;
+  console.log(url, "url");
+
   const userToken = localStorage.getItem("user_token");
   console.log(userToken, "user data token");
 
@@ -214,7 +216,6 @@ export const imageUploadApi = async (endpoint: string, options: any = {}) => {
   formdata.append("image", options);
 
   const url = `${BASE_URL}${VERSION}${endpoint}`;
-  
 
   const response = await fetch(url, {
     method: "POST",
